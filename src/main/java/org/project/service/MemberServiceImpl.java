@@ -12,18 +12,18 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class MemberServiceImpl implements MemberService {
 	
-	private MemberMapper mapper;
+	private MemberMapper membermapper;
 
 	@Override
 	public void register(MemberVO member) {
 		log.info(member);
-		mapper.insert(member);
+		membermapper.insert(member);
 	}
 
 	@Override
-	public String login(String id, String pw) {
-		MemberVO membervo = mapper.getUser(id);
-		if (membervo.getPw().equals(pw)) {
+	public String login(String id, String pw, int checked) {
+		MemberVO membervo = membermapper.getUserInfo(id);
+		if (membervo.getPw().equals(pw) && membervo.getChecked()==checked) {
 			return membervo.getId();
 		}
 		return null;
@@ -33,14 +33,14 @@ public class MemberServiceImpl implements MemberService {
 	public boolean registerIdCheck(String id) {
 		boolean result = false;
 		
-		if(mapper.selectIdCheck(id)==0) result = true;
+		if(membermapper.IsIdValid(id)==0) result = true;
 		
 		return result;
 	}
 
 	@Override
-	public MemberVO getUser(String id) {
-		return mapper.getUser(id);
+	public MemberVO getUserInfo(String id) {
+		return membermapper.getUserInfo(id);
 	}
 	
 	

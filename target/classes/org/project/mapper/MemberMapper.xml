@@ -10,7 +10,7 @@
 		values(seq_user.nextval, #{id}, #{pw}, #{name},#{phone}, #{email}, #{checked})
 		
 	</insert>
-	<select id="getUser" resultType="org.project.domain.MemberVO">
+	<select id="getUserInfo" resultType="org.project.domain.MemberVO">
 		select * from tbl_user where id = #{id}
 	</select>
 	
@@ -20,7 +20,7 @@
 		
 	</select>
 	
-	<select id="selectIdCheck" resultType="int">
+	<select id="IsIdValid" resultType="int">
 		
 		select count(*) from tbl_user where id = #{id}
 			

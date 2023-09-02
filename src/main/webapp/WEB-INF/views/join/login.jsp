@@ -14,7 +14,7 @@
 						<fieldset>
 							<div class="form-group">
 								<label class="radio-inline"> <input type="radio"
-									name="checked" value="0" checked onchange="userType()">
+									name="checked" value="0" checked>
 									개인
 								</label> <label class="radio-inline"> <input type="radio"
 									name="checked" value="1"> 사업자
@@ -22,11 +22,11 @@
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="아이디" name="id"
-									type="text" autofocus>
+									type="text" autofocus required>
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="비밀번호" name="pw"
-									type="password" value="">
+									type="password" required>
 							</div>
 							<!-- Change this to a button or input when using this as a form -->
 							<button type="submit" class="btn btn-lg btn-success btn-block">로그인</button>
@@ -38,4 +38,21 @@
 		</div>
 	</div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var result = '<c:out value="${result}"/>';
+
+        checkAlert(result);
+
+        history.replaceState({}, null, null);
+
+        function checkAlert(result) {
+            if (result === '' || history.state) {
+                return;
+            }
+            alert(result);
+        }
+    });
+</script>
 <%@include file="../includes/footer.jsp"%>

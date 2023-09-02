@@ -6,10 +6,10 @@ public interface MemberService {
 	
 	public void register(MemberVO member);
 	
-	public String login(String id, String pw);
+	public String login(String id, String pw, int checked);
 	
 	public boolean registerIdCheck(String id);
 	
-	public MemberVO getUser(String id);
+	public MemberVO getUserInfo(String id);
 	
 }
