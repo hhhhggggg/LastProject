@@ -1,6 +1,7 @@
 package org.project.controller;
 
-import org.project.define.define;
+import javax.servlet.http.HttpSession;
+
 import org.project.domain.MemberVO;
 import org.project.service.MemberService;
 import org.springframework.stereotype.Controller;
@@ -29,36 +30,55 @@ public class MemberController {
 
     @PostMapping("/register")
     public String register(MemberVO member, RedirectAttributes rttr) {
-        log.info("추가" + member);
+        log.info("register 신청" + member);
         boolean rgChk;
         rgChk = service.registerIdCheck(member.getId());
         if (rgChk==false) {
-            rttr.addFlashAttribute("msg", define.DUPLICATE_ID_MESSAGE);
-            // 중복 아이디인 경우 회원가입 페이지로 다시 이동
-            return "redirect:/join/register";
+            rttr.addFlashAttribute("result","중복된 ID");
+        }else {
+        	service.register(member);
+        	rttr.addFlashAttribute("result","회원가입 완료");
         }
-        service.register(member);
-        rttr.addFlashAttribute("msg", define.REGISTER_SUCCESS);
         //redirect는 get방식으로 전달
-        return "redirect:/join/login";
+        return "redirect:/join/index";
     }
 
     @GetMapping("/login")
-    public void login() {
+    public String login(HttpSession session) {
         log.info("로그인 요청 받음");
+        String id = (String)session.getAttribute("id");
+        if(id != null) {//로그인 O
+        	return "redirect:/join/index";
+        }
+        return "/join/login";//로그인 x
     }
 
     @PostMapping("/login")
-    public void login(@RequestParam("id") String id, @RequestParam("pw") String pw, Model model) {
+    public String login(@RequestParam("id") String id, @RequestParam("pw") String pw, HttpSession session) {
         log.info("로그인. 입력한 비밀번호는 -> " + pw);
-
-        String check_pw = service.login(id);
-
-        log.info("DB에 있는 비밀번호 -> " + check_pw);
-        model.addAttribute("id", id);
+        String checkId = service.login(id, pw);
+        if (checkId == null) {
+        	return "redirect:/join/login";
+        }
+        session.setAttribute("id", checkId);
+		return "redirect:/join/index";
+    }
+    
+    @PostMapping("/logout")
+    public String logout(HttpSession session) {
+    	session.invalidate();
+    	log.info("logout");
+    	return "redirect:/join/index";
     }
 
     @GetMapping("/index")
-    public void index() {
+    public String index(HttpSession session, Model model) {
+    	String id = (String) session.getAttribute("id");
+    	if(id!=null) {
+    		MemberVO membervo = service.getUser(id);
+    		model.addAttribute("user",membervo);
+    		return "/join/index";
+    	}
+    	return "redirect:/join/login";
     }
 }
