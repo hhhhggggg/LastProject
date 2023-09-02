@@ -12,11 +12,6 @@
 				<div class="panel-body">
 					<form action="/join/login" method="post">
 						<fieldset>
-							<c:if test="${msg eq '회원가입이 완료되었습니다.'}">
-								<script>
-									alert('${msg}');
-								</script>
-							</c:if>
 							<div class="form-group">
 								<label class="radio-inline"> <input type="radio"
 									name="checked" value="0" checked onchange="userType()">
@@ -35,13 +30,12 @@
 							</div>
 							<!-- Change this to a button or input when using this as a form -->
 							<button type="submit" class="btn btn-lg btn-success btn-block">로그인</button>
-							<a href="register">회원가입</a>
-						</fieldset>
+                            <button id="registerButton" type="button" class="btn btn-lg btn-primary btn-block" onclick="location.href='/join/register'">회원가입</button>
+                       </fieldset>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
 <%@include file="../includes/footer.jsp"%>

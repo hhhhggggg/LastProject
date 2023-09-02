@@ -48,7 +48,7 @@
 								style="display: none; width: 150px; height: 100px; border: 1px solid; text-align: center;">
 								첨부파일 공간 대충 느낌만</div>
 							<button type="submit" class="btn btn-lg btn-success btn-block">가입하기</button>
-							<button id="goBack" class="btn btn-info">뒤로가기</button>
+<!-- 							<button id="goBack" class="btn btn-info">뒤로가기</button> -->
 						</fieldset>
 					</form>
 				</div>
@@ -56,14 +56,12 @@
 		</div>
 	</div>
 </div>
-<c:if test="${msg eq '중복된 아이디입니다.'}">
-	<script>
-		alert('${msg}');
-	</script>
-</c:if>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	$(document).ready(function() {
+		
+		
 		// 회원 유형에 따른 첨부파일 영역 표시/숨김
 		$('input[name="checked"]').on('change', function() {
 			if ($(this).val() === '1') {
@@ -131,9 +129,9 @@
 		});
 
 		// 뒤로가기 버튼 클릭 시 동작
-		$('#goBack').click(function() {
-			history.go(-1); 
-		});
+// 		$('#goBack').click(function() {
+// 			history.go(-1); 
+// 		});
 	});
 </script>
 <%@include file="../includes/footer.jsp"%>

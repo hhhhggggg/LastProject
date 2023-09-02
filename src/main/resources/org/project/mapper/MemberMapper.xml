@@ -10,6 +10,9 @@
 		values(seq_user.nextval, #{id}, #{pw}, #{name},#{phone}, #{email}, #{checked})
 		
 	</insert>
+	<select id="getUser" resultType="org.project.domain.MemberVO">
+		select * from tbl_user where id = #{id}
+	</select>
 	
 	<select id="selectLogin" resultType="string">
 		

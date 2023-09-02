@@ -6,9 +6,7 @@
 	<title>Home</title>
 </head>
 <body>
-<li>
-    <a href="/join/login">로그인</a>
-     <a href="/join/register">회원가입</a>
-</li>
+    <a href="/join/login">login</a>
+    <a href="/join/register">register</a>
 </body>
 </html>
