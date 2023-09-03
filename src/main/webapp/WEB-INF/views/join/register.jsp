@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@include file="../includes/header.jsp"%>
+<%@include file="../includes/header_user.jsp"%>
 <div class="container">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
@@ -140,4 +140,4 @@
 		});
 	});
 </script>
-<%@include file="../includes/footer.jsp"%>
+<%@include file="../includes/footer_user.jsp"%>

@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -48,34 +49,38 @@ public class MemberController {
 	public String login(HttpSession session) {
 		log.info("로그인 Get");
 		String id = (String) session.getAttribute("id");
-		if (id != null) {// 로그인 O
-			return "redirect:/join/index";
+		if (id.equals("없는 아이디 입니다.") || id.equals("패스워드가 다릅니다.") || id.equals("유저 타입이 다릅니다.")) {// 로그인 O
+			return "/join/login";
 		}
-		return "/join/login";// 로그인 x
+		return "redirect:/join/index";// 로그인 x
 	}
 
 	@PostMapping("/login")
-	public String login(MemberVO membervo, HttpSession session) {
+	public String login(MemberVO membervo, HttpSession session, RedirectAttributes rttr) {
 		log.info("로그인. 입력한 비밀번호는 -> " + membervo.getPw());
 		String checkId = service.login(membervo.getId(), membervo.getPw(), membervo.getChecked());
-		if (checkId==null) {
-			return "redirect:/join/login";
+//		if (checkId==null) {
+//			return "redirect:/join/login";
+//		}
+//		session.setAttribute("id", checkId);
+//		return "redirect:/join/index";
+		
+		if (checkId==membervo.getId()) {
+			session.setAttribute("id", checkId);
+			return "redirect:/join/index";
 		}
-		session.setAttribute("id", checkId);
-		return "redirect:/join/index";
+		rttr.addFlashAttribute("result", checkId);
+		return "redirect:/join/login";
 	}
 
-	@GetMapping("/logout")
-	public String logout() {
-		log.info("logout Get");
-		return "/join/index";
+	@RequestMapping(value = "/logout", method = { RequestMethod.GET, RequestMethod.POST })
+	public String logout(HttpSession session) {
+		log.info("logout");
+	    session.invalidate();
+	    log.info("logout");
+	    return "/join/index";
 	}
-	@PostMapping("/logout")
-	public String logout(HttpSession session, RedirectAttributes rttr) {
-		session.invalidate();
-		log.info("logout Post");
-		return "/join/index";
-	}
+
 
 	@GetMapping("/index")
 	public void index(HttpSession session, Model model) {

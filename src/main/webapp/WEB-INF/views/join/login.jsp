@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="../includes/header.jsp"%>
+<%@include file="../includes/header_user.jsp"%>
 
 <div class="container">
 	<div class="row">
@@ -10,7 +10,7 @@
 					<h3 class="panel-title" style="text-align: center;">로그인</h3>
 				</div>
 				<div class="panel-body">
-					<form action="/join/login" method="post">
+					<form id='loginpageForm' action="/join/login" method="post">
 						<fieldset>
 							<div class="form-group">
 								<label class="radio-inline"> <input type="radio"
@@ -30,7 +30,7 @@
 							</div>
 							<!-- Change this to a button or input when using this as a form -->
 							<button type="submit" class="btn btn-lg btn-success btn-block">로그인</button>
-                            <button id="registerButton" type="button" class="btn btn-lg btn-primary btn-block" onclick="location.href='/join/register'">회원가입</button>
+                            <button type="button" id="registerButton" class="btn btn-lg btn-primary btn-block" onclick="location.href='/join/register'">회원가입</button>
                        </fieldset>
 					</form>
 				</div>
@@ -53,6 +53,15 @@
             }
             alert(result);
         }
+        
+//         var loginpageForm = $("#loginpageForm");
+        
+// 		$("#registerButton").on("click", function(e) {
+// 			e.preventDefault();
+// 			loginpageForm.attr("action","/join/register");
+// 			loginpageForm.attr("method","get");
+// 			loginpageForm.submit();
+// 		});
     });
 </script>
-<%@include file="../includes/footer.jsp"%>
+<%@include file="../includes/footer_user.jsp"%>
