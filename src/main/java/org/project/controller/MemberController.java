@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -21,64 +22,73 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class MemberController {
 
-    private final MemberService service;
+	private MemberService service;
 
-    @GetMapping("/register")
-    public void register() {
-        log.info("회원가입 페이지 Get");
-    }
+	@GetMapping("/register")
+	public void register() {
+		log.info("회원가입 페이지 Get");
+	}
 
-    @PostMapping("/register")
-    public String register(MemberVO member, RedirectAttributes rttr) {
-        log.info("register 신청" + member);
-        boolean rgChk;
-        rgChk = service.registerIdCheck(member.getId());
-        if (rgChk==false) {
-            rttr.addFlashAttribute("result","중복된 ID");
-        }else {
-        	service.register(member);
-        	rttr.addFlashAttribute("result","회원가입 완료");
-        }
-        //redirect는 get방식으로 전달
-        return "redirect:/join/index";
-    }
+	@PostMapping("/register")
+	public String register(MemberVO membervo, RedirectAttributes rttr) {
+		log.info("register 신청" + membervo);
+		boolean rgChk;
+		rgChk = service.registerIdCheck(membervo.getId());
+		if (rgChk == false) {
+			rttr.addFlashAttribute("result", "중복된 ID");
+			log.info("중복된 ID");
+			return "redirect:/join/register";
+		}
+		service.register(membervo);
+		rttr.addFlashAttribute("result", "회원가입 완료");
+		// redirect는 get방식으로 전달
+		return "redirect:/join/login";
+	}
 
-    @GetMapping("/login")
-    public String login(HttpSession session) {
-        log.info("로그인 요청 받음");
-        String id = (String)session.getAttribute("id");
-        if(id != null) {//로그인 O
-        	return "redirect:/join/index";
-        }
-        return "/join/login";//로그인 x
-    }
+	@GetMapping("/login")
+	public String login(HttpSession session) {
+		log.info("로그인 Get");
+		String id = (String) session.getAttribute("id");
+		if (id.equals("없는 아이디 입니다.") || id.equals("패스워드가 다릅니다.") || id.equals("유저 타입이 다릅니다.")) {// 로그인 O
+			return "/join/login";
+		}
+		return "redirect:/join/index";// 로그인 x
+	}
 
-    @PostMapping("/login")
-    public String login(@RequestParam("id") String id, @RequestParam("pw") String pw, HttpSession session) {
-        log.info("로그인. 입력한 비밀번호는 -> " + pw);
-        String checkId = service.login(id, pw);
-        if (checkId == null) {
-        	return "redirect:/join/login";
-        }
-        session.setAttribute("id", checkId);
-		return "redirect:/join/index";
-    }
-    
-    @PostMapping("/logout")
-    public String logout(HttpSession session) {
-    	session.invalidate();
-    	log.info("logout");
-    	return "redirect:/join/index";
-    }
+	@PostMapping("/login")
+	public String login(MemberVO membervo, HttpSession session, RedirectAttributes rttr) {
+		log.info("로그인. 입력한 비밀번호는 -> " + membervo.getPw());
+		String checkId = service.login(membervo.getId(), membervo.getPw(), membervo.getChecked());
+//		if (checkId==null) {
+//			return "redirect:/join/login";
+//		}
+//		session.setAttribute("id", checkId);
+//		return "redirect:/join/index";
+		
+		if (checkId==membervo.getId()) {
+			session.setAttribute("id", checkId);
+			return "redirect:/join/index";
+		}
+		rttr.addFlashAttribute("result", checkId);
+		return "redirect:/join/login";
+	}
 
-    @GetMapping("/index")
-    public String index(HttpSession session, Model model) {
-    	String id = (String) session.getAttribute("id");
-    	if(id!=null) {
-    		MemberVO membervo = service.getUser(id);
-    		model.addAttribute("user",membervo);
-    		return "/join/index";
-    	}
-    	return "redirect:/join/login";
-    }
+	@RequestMapping(value = "/logout", method = { RequestMethod.GET, RequestMethod.POST })
+	public String logout(HttpSession session) {
+		log.info("logout");
+	    session.invalidate();
+	    log.info("logout");
+	    return "/join/index";
+	}
+
+
+	@GetMapping("/index")
+	public void index(HttpSession session, Model model) {
+		String id = (String) session.getAttribute("id");
+		log.info("index Get");
+		if (id != null) {
+			MemberVO membervo = service.getUserInfo(id);
+			model.addAttribute("user", membervo);
+		}
+	}
 }

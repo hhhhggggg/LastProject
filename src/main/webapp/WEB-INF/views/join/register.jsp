@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@include file="../includes/header.jsp"%>
+<%@include file="../includes/header_user.jsp"%>
 <div class="container">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
@@ -13,9 +13,9 @@
 						<fieldset>
 							<div class="form-group">
 								<label class="radio-inline"> <input type="radio"
-									name="checked" value="0" checked> 개인
+									name="checked" value=0 checked> 개인
 								</label> <label class="radio-inline"> <input type="radio"
-									name="checked" value="1"> 사업자
+									name="checked" value=1> 사업자
 								</label>
 							</div>
 							<div class="form-group">
@@ -25,7 +25,7 @@
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="비밀번호" name="pw" id="pw"
-									type="password" value="">
+									type="password" value="" >
 								<div id="pwError" style="color: red;"></div>
 							</div>
 							<div class="form-group">
@@ -36,7 +36,7 @@
 							<div class="form-group">
 								<input class="form-control"
 									placeholder="전화번호 (ex: 010-0000-0000)" name="phone" id="phone"
-									type="tel" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
+									type="tel">
 								<div id="phoneError" style="color: red;"></div>
 							</div>
 							<div class="form-group">
@@ -48,7 +48,6 @@
 								style="display: none; width: 150px; height: 100px; border: 1px solid; text-align: center;">
 								첨부파일 공간 대충 느낌만</div>
 							<button type="submit" class="btn btn-lg btn-success btn-block">가입하기</button>
-<!-- 							<button id="goBack" class="btn btn-info">뒤로가기</button> -->
 						</fieldset>
 					</form>
 				</div>
@@ -58,10 +57,22 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
 	$(document).ready(function() {
 		
-		
+        var result = '<c:out value="${result}"/>';
+
+        checkAlert(result);
+
+        history.replaceState({}, null, null);
+
+        function checkAlert(result) {
+            if (result === '' || history.state) {
+                return;
+            }
+            alert(result);
+        }
 		// 회원 유형에 따른 첨부파일 영역 표시/숨김
 		$('input[name="checked"]').on('change', function() {
 			if ($(this).val() === '1') {
@@ -127,11 +138,6 @@
 		    }
 		    return true;
 		});
-
-		// 뒤로가기 버튼 클릭 시 동작
-// 		$('#goBack').click(function() {
-// 			history.go(-1); 
-// 		});
 	});
 </script>
-<%@include file="../includes/footer.jsp"%>
+<%@include file="../includes/footer_user.jsp"%>

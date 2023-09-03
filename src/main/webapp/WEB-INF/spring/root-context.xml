@@ -28,7 +28,7 @@
 	
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<context:component-scan base-package="org.project.sample"></context:component-scan>
+	<context:component-scan base-package="org.project.config"></context:component-scan>
 	<mybatis-spring:scan base-package="org.project.mapper"/>
 	<context:component-scan base-package="org.project.service"></context:component-scan>
 </beans>

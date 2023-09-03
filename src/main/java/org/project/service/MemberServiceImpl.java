@@ -12,35 +12,46 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class MemberServiceImpl implements MemberService {
 	
-	private MemberMapper mapper;
+	private MemberMapper membermapper;
 
 	@Override
 	public void register(MemberVO member) {
 		log.info(member);
-		mapper.insert(member);
+		membermapper.insert(member);
 	}
 
 	@Override
-	public String login(String id, String pw) {
-		MemberVO membervo = mapper.getUser(id);
-		if (membervo.getPw().equals(pw)) {
-			return membervo.getId();
+	public String login(String id, String pw, int checked) {
+		MemberVO membervo = membermapper.getUserInfo(id);
+		//만약에 유저 정보가 있다면
+		if (membervo != null) {
+			//유저 타입도 같고 패스워드도 맞으면 
+			if (membervo.getPw().equals(pw) && membervo.getChecked()==checked) {
+				//성공
+				return membervo.getId();
+			}
+			else if (!(membervo.getPw().equals(pw))) {
+				return "패스워드가 다릅니다.";
+			}
+			else if (membervo.getChecked()!=checked) {
+				return "유저 타입이 다릅니다.";
+			}
 		}
-		return null;
+		return "없는 아이디 입니다.";
 	}
 
 	@Override
 	public boolean registerIdCheck(String id) {
 		boolean result = false;
 		
-		if(mapper.selectIdCheck(id)==0) result = true;
+		if(membermapper.IsIdValid(id)==0) result = true;
 		
 		return result;
 	}
 
 	@Override
-	public MemberVO getUser(String id) {
-		return mapper.getUser(id);
+	public MemberVO getUserInfo(String id) {
+		return membermapper.getUserInfo(id);
 	}
 	
 	
