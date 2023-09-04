@@ -42,7 +42,7 @@ public class MemberController {
 		// redirect login
 		return "redirect:/join/login";
 	}
-// PC버전 테스트 테스트 또 테스트
+// 맥북 테스트 테스트 또 테스트
 	@GetMapping("/login")
 	public String login(HttpSession session) {
 		log.info("login Get");
