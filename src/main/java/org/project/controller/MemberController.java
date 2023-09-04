@@ -78,7 +78,7 @@ public class MemberController {
 	    return "/join/index";
 	}
 
-	// 헤헤헤헿하핳
+	// 헤헤헤헿하핳후
 	@GetMapping("/index")
 	public void index(HttpSession session, Model model) {
 		String id = (String) session.getAttribute("id");
