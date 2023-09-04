@@ -28,7 +28,7 @@ public class MemberController {
 	public void register() {
 		log.info("register Get");
 	}
-
+//나는 여기에
 	@PostMapping("/register")
 	public String register(MemberVO membervo, RedirectAttributes rttr) {
 		log.info("register ->" + membervo);
