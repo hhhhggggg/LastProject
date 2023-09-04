@@ -22,6 +22,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class MemberController {
 //안녕 나는 승빈
+	//주석을 써볼거야
 	private MemberService service;
 
 	@GetMapping("/register")
