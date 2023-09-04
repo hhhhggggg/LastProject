@@ -21,33 +21,31 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/join/*")
 @AllArgsConstructor
 public class MemberController {
-
 	private MemberService service;
 
 	@GetMapping("/register")
 	public void register() {
-		log.info("회원가입 페이지 Get");
+		log.info("register Get");
 	}
 
 	@PostMapping("/register")
 	public String register(MemberVO membervo, RedirectAttributes rttr) {
-		log.info("register 신청" + membervo);
+		log.info("register ->" + membervo);
 		boolean rgChk;
 		rgChk = service.registerIdCheck(membervo.getId());
 		if (rgChk == false) {
 			rttr.addFlashAttribute("result", "중복된 ID");
-			log.info("중복된 ID");
 			return "redirect:/join/register";
 		}
 		service.register(membervo);
 		rttr.addFlashAttribute("result", "회원가입 완료");
-		// redirect는 get방식으로 전달
+		// redirect login
 		return "redirect:/join/login";
 	}
-
+// 맥북 테스트 테스트 또 테스트
 	@GetMapping("/login")
 	public String login(HttpSession session) {
-		log.info("로그인 Get");
+		log.info("login Get");
 		String id = (String) session.getAttribute("id");
 		if (id == null || id.equals("없는 아이디 입니다.") || id.equals("패스워드가 다릅니다.") || id.equals("유저 타입이 다릅니다.")) {// 로그인 x
 		    session.invalidate();
@@ -58,9 +56,9 @@ public class MemberController {
 
 	@PostMapping("/login")
 	public String login(MemberVO membervo, HttpSession session, RedirectAttributes rttr) {
-		log.info("로그인. 입력한 비밀번호는 -> " + membervo.getPw());
+		log.info("login post, pw -> " + membervo.getId());
 		String checkId = service.login(membervo.getId(), membervo.getPw(), membervo.getChecked());
-	
+	//아령하세요 
 		if (checkId != null && checkId.equals(membervo.getId())) {
 		    session.setAttribute("id", checkId);
 		    log.info(checkId + "->index");
@@ -78,7 +76,6 @@ public class MemberController {
 	    log.info("logout");
 	    return "/join/index";
 	}
-
 
 	@GetMapping("/index")
 	public void index(HttpSession session, Model model) {
