@@ -21,44 +21,43 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/join/*")
 @AllArgsConstructor
 public class MemberController {
-//어떻게 하는걸까왜 또 잘되니
+//안녕 나는 승빈
 	private MemberService service;
 
 	@GetMapping("/register")
 	public void register() {
-		log.info("�쉶�썝媛��엯 �럹�씠吏� Get");
+		log.info("register Get");
 	}
 
 	@PostMapping("/register")
 	public String register(MemberVO membervo, RedirectAttributes rttr) {
-		log.info("register �떊泥�" + membervo);
+		log.info("register ->" + membervo);
 		boolean rgChk;
 		rgChk = service.registerIdCheck(membervo.getId());
 		if (rgChk == false) {
-			rttr.addFlashAttribute("result", "以묐났�맂 ID");
-			log.info("以묐났�맂 ID");
+			rttr.addFlashAttribute("result", "중복된 ID");
 			return "redirect:/join/register";
 		}
 		service.register(membervo);
-		rttr.addFlashAttribute("result", "�쉶�썝媛��엯 �셿猷�");
+		rttr.addFlashAttribute("result", "회원가입 완료");
 		// redirect�뒗 get諛⑹떇�쑝濡� �쟾�떖
 		return "redirect:/join/login";
 	}
 
 	@GetMapping("/login")
 	public String login(HttpSession session) {
-		log.info("濡쒓렇�씤 Get");
+		log.info("login Get");
 		String id = (String) session.getAttribute("id");
-		if (id == null || id.equals("�뾾�뒗 �븘�씠�뵒 �엯�땲�떎.") || id.equals("�뙣�뒪�썙�뱶媛� �떎由낅땲�떎.") || id.equals("�쑀�� ���엯�씠 �떎由낅땲�떎.")) {// 濡쒓렇�씤 x
+		if (id == null || id.equals("없는 아이디 입니다.") || id.equals("패스워드가 다릅니다.") || id.equals("유저 타입이 다릅니다.")) {// 로그인 x
 		    session.invalidate();
 			return "/join/login";
 		}
-		return "redirect:/join/index";// 濡쒓렇�씤 o
+		return "redirect:/join/index";// 로그인 o
 	}
 
 	@PostMapping("/login")
 	public String login(MemberVO membervo, HttpSession session, RedirectAttributes rttr) {
-		log.info("濡쒓렇�씤. �엯�젰�븳 鍮꾨�踰덊샇�뒗 -> " + membervo.getPw());
+		log.info("login post, pw -> " + membervo.getPw());
 		String checkId = service.login(membervo.getId(), membervo.getPw(), membervo.getChecked());
 	
 		if (checkId != null && checkId.equals(membervo.getId())) {
