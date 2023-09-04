@@ -21,7 +21,6 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/join/*")
 @AllArgsConstructor
 public class MemberController {
-	//이석남
 	private MemberService service;
 
 	@GetMapping("/register")
@@ -43,7 +42,7 @@ public class MemberController {
 		// redirect login
 		return "redirect:/join/login";
 	}
-
+// PC버전 테스트 테스트
 	@GetMapping("/login")
 	public String login(HttpSession session) {
 		log.info("login Get");
@@ -78,7 +77,6 @@ public class MemberController {
 	    return "/join/index";
 	}
 
-	// 헤헤헤헿하핳하하하하
 	@GetMapping("/index")
 	public void index(HttpSession session, Model model) {
 		String id = (String) session.getAttribute("id");
