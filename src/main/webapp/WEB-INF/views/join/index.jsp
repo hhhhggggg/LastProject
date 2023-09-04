@@ -67,6 +67,13 @@
 		<a href="#" class="mx-2" id="myPage" style="display: ${empty user ? 'inline' : 'none'}"><span class="bi-person-fill"></span></a>
 		<a href="/join/login" class="mx-2" id="logoutIn" style="display: ${empty user ? 'inline' : 'none'}"><span class="bi-twitter"></span></a>
 		<a href="/join/register" class="mx-2" id="register" style="display: ${empty user ? 'inline' : 'none'}"><span class="bi-instagram"></span></a>
+		<a ${empty user ? 'style="display:none;"' : ''}>${user.name }  (
+		    <c:choose>
+		        <c:when test="${user.checked == 0}">개인</c:when>
+		        <c:when test="${user.checked == 1}">사업자</c:when>
+		        <c:otherwise></c:otherwise>
+		    </c:choose>)
+	    </a>
 		<a href="/join/logout" class="mx-2" id="logoutLink" style="display: ${not empty user ? 'inline' : 'none'}"><span class="bi-power"></span></a>
 
 		<!-- JavaScript -->
@@ -90,18 +97,6 @@
 
 
   <main id="main">
-<p>userType: 
-  <c:choose>
-    <c:when test="${user.checked == 0}">개인</c:when>
-    <c:when test="${user.checked == 1}">사업자</c:when>
-    <c:otherwise></c:otherwise>
-  </c:choose>
-</p>
-<p>name : ${user.name }</p>
-<p>id : ${user.id }</p>
-<p>pw : ${user.pw }</p>
-<p>email : ${user.email }</p>
-<p>phone : ${user.phone }</p>
     <!-- ======= Hero Slider Section ======= -->
     <section id="hero-slider" class="hero-slider">
       <div class="container-md" data-aos="fade-in">
