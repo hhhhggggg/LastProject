@@ -59,7 +59,7 @@ public class MemberController {
 	public String login(MemberVO membervo, HttpSession session, RedirectAttributes rttr) {
 		log.info("login post, pw -> " + membervo.getPw());
 		String checkId = service.login(membervo.getId(), membervo.getPw(), membervo.getChecked());
-	
+	//아령하세요 
 		if (checkId != null && checkId.equals(membervo.getId())) {
 		    session.setAttribute("id", checkId);
 		    log.info(checkId + "->index");
