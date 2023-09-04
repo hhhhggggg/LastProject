@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: User
 Build-Jdk: 11.0.14
+=======
+Built-By: Shin Seung-bin
+Build-Jdk: 11.0.16
+>>>>>>> b40756d55a21948be543616b0e8e52399b7ef5d5
 Created-By: Maven Integration for Eclipse
 
