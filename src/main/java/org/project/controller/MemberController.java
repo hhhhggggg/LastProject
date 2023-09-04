@@ -49,27 +49,25 @@ public class MemberController {
 	public String login(HttpSession session) {
 		log.info("로그인 Get");
 		String id = (String) session.getAttribute("id");
-		if (id.equals("없는 아이디 입니다.") || id.equals("패스워드가 다릅니다.") || id.equals("유저 타입이 다릅니다.")) {// 로그인 O
+		if (id == null || id.equals("없는 아이디 입니다.") || id.equals("패스워드가 다릅니다.") || id.equals("유저 타입이 다릅니다.")) {// 로그인 x
+		    session.invalidate();
 			return "/join/login";
 		}
-		return "redirect:/join/index";// 로그인 x
+		return "redirect:/join/index";// 로그인 o
 	}
 
 	@PostMapping("/login")
 	public String login(MemberVO membervo, HttpSession session, RedirectAttributes rttr) {
 		log.info("로그인. 입력한 비밀번호는 -> " + membervo.getPw());
 		String checkId = service.login(membervo.getId(), membervo.getPw(), membervo.getChecked());
-//		if (checkId==null) {
-//			return "redirect:/join/login";
-//		}
-//		session.setAttribute("id", checkId);
-//		return "redirect:/join/index";
-		
-		if (checkId==membervo.getId()) {
-			session.setAttribute("id", checkId);
-			return "redirect:/join/index";
+	
+		if (checkId != null && checkId.equals(membervo.getId())) {
+		    session.setAttribute("id", checkId);
+		    log.info(checkId + "->index");
+		    return "redirect:/join/index";
 		}
 		rttr.addFlashAttribute("result", checkId);
+		log.info(checkId+"->login");
 		return "redirect:/join/login";
 	}
 
