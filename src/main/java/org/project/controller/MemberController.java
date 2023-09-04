@@ -21,7 +21,7 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/join/*")
 @AllArgsConstructor
 public class MemberController {
-//어떻게 하는걸까
+//어떻게 하는걸까왜 또 잘되니
 	private MemberService service;
 
 	@GetMapping("/register")
