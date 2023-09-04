@@ -21,15 +21,14 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/join/*")
 @AllArgsConstructor
 public class MemberController {
-//안녕 나는 승빈
-	//주석을 써볼거야
+	
 	private MemberService service;
 
 	@GetMapping("/register")
 	public void register() {
 		log.info("register Get");
 	}
-//나는 여기에
+
 	@PostMapping("/register")
 	public String register(MemberVO membervo, RedirectAttributes rttr) {
 		log.info("register ->" + membervo);
@@ -41,7 +40,7 @@ public class MemberController {
 		}
 		service.register(membervo);
 		rttr.addFlashAttribute("result", "회원가입 완료");
-		// redirect�뒗 get諛⑹떇�쑝濡� �쟾�떖
+		// redirect login
 		return "redirect:/join/login";
 	}
 
