@@ -13,9 +13,6 @@ public interface MemberMapper {
 	public int IsIdValid(String id);
 
 
-	public static String findId(String name, String email, String phone) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public String findId(String name, String email, String phone);
 
 }

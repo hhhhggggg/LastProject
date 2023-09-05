@@ -92,8 +92,8 @@ public class MemberController {
 		}
 	}
 	@GetMapping("/id_find")
-	public String findId() {
-		return "join/id_find";
+	public void findId() {
+		log.info("id_find Get");
 	}
 	
 	@PostMapping("/id_find")

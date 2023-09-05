@@ -55,7 +55,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 	@Override
 	public String findId(String name, String email, String phone) {
-		String foundId = "";
+		String foundId = membermapper.findId(name, email, phone);
 		return foundId;
 	        // MemberMapper를 사용하여 이메일을 기반으로 아이디를 찾는 로직 구현
 	    }
