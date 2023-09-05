@@ -25,6 +25,7 @@ public class PageController {
 	
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
+		log.info("calendar Get");
 	    Calendar cal = Calendar.getInstance();
 	    DateData calendarData;
 
