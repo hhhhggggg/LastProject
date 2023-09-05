@@ -6,6 +6,9 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.Data;
+
+@Data
 public class DateData {
 
 	String year = "";
@@ -18,56 +21,17 @@ public class DateData {
 	//		3. 생성자 추가
 	//				하여 사용하면 보다 편리하고 깨끗하게 코드를 만들 수 있다.
 	String schedule = "";
-	String schedule_detail = "";
 
-	public String getYear() {
-		return year;
-	}
+	public DateData(String year, String month, String date, String value, String schedule, String schedule_detail) {
 
-	public void setYear(String year) {
 		this.year = year;
-	}
-
-	public String getMonth() {
-		return month;
-	}
-
-	public void setMonth(String month) {
 		this.month = month;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
 		this.date = date;
-	}
-
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
 		this.value = value;
-	}
-
-	public String getSchedule() {
-		return schedule;
-	}
-
-	public void setSchedule(String schedule) {
 		this.schedule = schedule;
-	}
 
-	public String getSchedule_detail() {
-		return schedule_detail;
 	}
-
-	public void setSchedule_detail(String schedule_detail) {
-		this.schedule_detail = schedule_detail;
-	}
-
+	
 	// 날짜에 관련된 달력정보를 가지는 메서드
 	public Map<String, Integer> today_info(DateData dateData) {
 		// 날짜 캘린더 함수에 삽입.
@@ -141,17 +105,6 @@ public class DateData {
 		return before_after_data;
 	}
 	
-	// 스케줄 사용시 사용될 생성자
-	public DateData(String year, String month, String date, String value, String schedule, String schedule_detail) {
-
-		this.year = year;
-		this.month = month;
-		this.date = date;
-		this.value = value;
-		this.schedule = schedule;
-		this.schedule_detail = schedule_detail;
-
-	}
 
 	// 달력만 사용시 사용될 생성자
 	public DateData(String year, String month, String date, String value) {
@@ -166,9 +119,5 @@ public class DateData {
 	public DateData() {
 	}
 
-	@Override
-	public String toString() {
-		return "DateData [year=" + year + ", month=" + month + ", date=" + date + ", value=" + value + "]";
-	}
 
 }
