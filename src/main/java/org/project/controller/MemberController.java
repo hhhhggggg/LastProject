@@ -1,11 +1,16 @@
 package org.project.controller;
 
+import java.sql.ResultSet;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.project.domain.MemberVO;
 import org.project.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +24,8 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @RequestMapping("/join/*")
-@AllArgsConstructor
 public class MemberController {
+	@Autowired
 	private MemberService service;
 
 	@GetMapping("/register")
@@ -31,12 +36,19 @@ public class MemberController {
 	@PostMapping("/register")
 	public String register(MemberVO membervo, RedirectAttributes rttr) {
 		log.info("register ->" + membervo);
-		boolean rgChk;
-		rgChk = service.registerIdCheck(membervo.getId());
-		if (rgChk == false) {
+		boolean IDChk;
+		boolean EChk;
+		IDChk = service.registerIdCheck(membervo.getId());
+		EChk = service.registerEmailCheck(membervo.getEmail());
+		if (IDChk == false) {
 			rttr.addFlashAttribute("result", "중복된 ID");
 			return "redirect:/join/register";
 		}
+		else if (EChk == false) {
+			rttr.addFlashAttribute("result", "중복된 EMAIL");
+			return "redirect:/join/register";
+		}
+
 		service.register(membervo);
 		rttr.addFlashAttribute("result", "회원가입 완료");
 		// redirect login
@@ -51,18 +63,17 @@ public class MemberController {
 		    session.invalidate();
 			return "/join/login";
 		}
-		return "redirect:/join/index";// 로그인 o
+		return "redirect:/join/main";// 로그인 o
 	}
 
 	@PostMapping("/login")
 	public String login(MemberVO membervo, HttpSession session, RedirectAttributes rttr) {
-		log.info("login post, pw -> " + membervo.getId());
+		log.info("login post, Id -> " + membervo.getId());
 		String checkId = service.login(membervo.getId(), membervo.getPw(), membervo.getChecked());
-	//아령하세요 
 		if (checkId != null && checkId.equals(membervo.getId())) {
 		    session.setAttribute("id", checkId);
-		    log.info(checkId + "->index");
-		    return "redirect:/join/index";
+		    log.info(checkId + "->main");
+		    return "redirect:/join/main";
 		}
 		rttr.addFlashAttribute("result", checkId);
 		log.info(checkId+"->login");
@@ -74,16 +85,67 @@ public class MemberController {
 		log.info("logout");
 	    session.invalidate();
 	    log.info("logout");
-	    return "/join/index";
+	    return "/join/main";
 	}
 
-	@GetMapping("/index")
-	public void index(HttpSession session, Model model) {
+	@GetMapping("/main")
+	public void main(HttpSession session, Model model) {
 		String id = (String) session.getAttribute("id");
-		log.info("index Get");
+		log.info("main Get");
 		if (id != null) {
 			MemberVO membervo = service.getUserInfo(id);
 			model.addAttribute("user", membervo);
 		}
+	}
+	@GetMapping("/id_find")
+	public void findId() {
+		log.info("id_find Get");
+	}
+	
+	@PostMapping("/id_find")
+	public String findId(
+			@RequestParam("name") String name,
+			@RequestParam("email") String email,
+			@RequestParam("checked") int checked,
+			@RequestParam("phone") String phone, Model model) {
+		// MemberService를 호출하여 아이디 찾기 로직 수행
+        String foundId = service.findId(name, email, phone, checked);
+
+        if (foundId != null) {
+            model.addAttribute("message", "아이디는 " + foundId + " 입니다.");
+            model.addAttribute("foundId", foundId);
+        } else {
+            model.addAttribute("message", "일치하는 아이디를 찾을 수 없습니다.");
+        }
+
+        return "/join/id_find_result"; // 결과를 표시할 JSP 파일의 이름 반환
+    }
+	@GetMapping("/id_find")
+	public void findPw() {
+		log.info("id_find Get");
+	}
+	
+	@PostMapping("/id_find")
+	public String findPW(
+			@RequestParam("name") String name,
+			@RequestParam("email") String email,
+			@RequestParam("checked") int checked,
+			@RequestParam("phone") String phone, Model model) {
+		// MemberService를 호출하여 아이디 찾기 로직 수행
+        String foundPw = service.findPw(name, email, phone, checked);
+
+        if (foundPw != null) {
+            model.addAttribute("message", "아이디는 " + foundPw + " 입니다.");
+            model.addAttribute("foundId", foundPw);
+        } else {
+            model.addAttribute("message", "일치하는 아이디를 찾을 수 없습니다.");
+        }
+
+        return "/join/id_find_result"; // 결과를 표시할 JSP 파일의 이름 반환
+    }
+	
+	@GetMapping("/id_find_result")
+	public void findId_result() {
+		log.info("id_find_result Get");
 	}
 }

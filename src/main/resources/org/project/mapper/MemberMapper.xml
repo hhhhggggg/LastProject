@@ -25,5 +25,18 @@
 		select count(*) from tbl_user where id = #{id}
 			
 	</select>
+	<select id="IsEmailValid" resultType="int">
+		
+		select count(*) from tbl_user where email = #{email}
+			
+	</select>
+	<select id="findId" parameterType="map" resultType="string">
+        SELECT id FROM tbl_user
+        WHERE name = #{name} AND email = #{email} AND phone = #{phone} AND checked = #{checked}
+    </select>
+    <select id="findPw" parameterType="map" resultType="string">
+        SELECT pw FROM tbl_user
+        WHERE id = #{id} AND name = #{name} AND email = #{email} AND phone = #{phone} AND checked = #{checked}
+    </select>
 
 </mapper>

@@ -6,10 +6,10 @@
 		<div class="col-md-4 col-md-offset-4">
 			<div class="login-panel panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title" style="text-align: center;">회원가입</h3>
+					<h3 class="panel-title" style="text-align: center;">아이디 찾기</h3>
 				</div>
 				<div class="panel-body">
-					<form id="joinForm" action="/join/register" method="post">
+					<form id="joinForm" action="/join/id_find" method="post">
 						<fieldset>
 							<div class="form-group">
 								<label class="radio-inline"> <input type="radio"
@@ -17,16 +17,6 @@
 								</label> <label class="radio-inline"> <input type="radio"
 									name="checked" value=1> 사업자
 								</label>
-							</div>
-							<div class="form-group">
-								<input class="form-control" placeholder="아이디" name="id" id="id"
-									type="text" autofocus>
-								<div id="idError" style="color: red;"></div>
-							</div>
-							<div class="form-group">
-								<input class="form-control" placeholder="비밀번호" name="pw" id="pw"
-									type="password" value="" >
-								<div id="pwError" style="color: red;"></div>
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="이름" name="name"
@@ -44,12 +34,7 @@
 									id="email" type="email">
 								<div id="emailError" style="color: red;"></div>
 							</div>
-							<div id="attachArea"
-								style="display: none; width: 150px; height: 100px; border: 1px solid; text-align: center;">
-								첨부파일 공간 대충 느낌만</div>
-							<button type="submit" class="btn btn-lg btn-success btn-block">가입하기</button>
-							<button type="button" class="btn btn-lg btn-primary btn-block" onclick="location.href='/join/main'">메인</button>
-                           
+							<button type="submit" class="btn btn-lg btn-success btn-block">찾기</button>
 						</fieldset>
 					</form>
 				</div>
@@ -75,41 +60,15 @@
             }
             alert(result);
         }
-		// 회원 유형에 따른 첨부파일 영역 표시/숨김
-		$('input[name="checked"]').on('change', function() {
-			if ($(this).val() === '1') {
-				$('#attachArea').show();
-			} else {
-				$('#attachArea').hide();
-			}
-		});
 
 		// 회원 가입 폼 체크하는 함수
 		$('#joinForm').submit(function(){
-		    var id = $('#id').val();
-		    var pw = $('#pw').val();
 		    var name = $('#name').val();
 		    var phone = $('#phone').val();
 		    var email = $('#email').val();
-		    var idError = $('#idError');
-		    var pwError = $('#pwError');
 		    var nameError = $('#nameError');
 		    var phoneError = $('#phoneError');
 		    var emailError = $('#emailError');
-
-		    // 아이디 유효성 검사
-		    if (id === '') {
-		        idError.text('아이디를 입력하세요.');
-		    } else {
-		        idError.text('');
-		    }
-
-		    // 비밀번호 유효성 검사
-		    if (pw === '') {
-		        pwError.text('비밀번호를 입력하세요.');
-		    } else {
-		        pwError.text('');
-		    }
 
 		    // 이름 유효성 검사
 		    if (name === '') {

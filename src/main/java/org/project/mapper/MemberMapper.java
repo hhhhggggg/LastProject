@@ -1,5 +1,7 @@
 package org.project.mapper;
 
+import java.util.Map;
+
 import org.project.domain.MemberVO;
 
 public interface MemberMapper {
@@ -12,4 +14,9 @@ public interface MemberMapper {
 
 	public int IsIdValid(String id);
 
+	public int IsEmailValid(String email);
+
+	public String findId(Map<String, Object> paramMap);
+
+	public String findPw(Map<String, Object> paramMap);
 }

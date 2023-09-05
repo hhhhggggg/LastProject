@@ -11,5 +11,12 @@ public interface MemberService {
 	public boolean registerIdCheck(String id);
 	
 	public MemberVO getUserInfo(String id);
+
+	public String findId(String name, String email, String phone, int checked);
+
+	public String findPw(String id, String name, String email, String phone, int checked);
+	
+	public boolean registerEmailCheck(String email);
+	
 	
 }
