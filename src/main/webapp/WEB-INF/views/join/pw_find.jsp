@@ -6,7 +6,7 @@
 		<div class="col-md-4 col-md-offset-4">
 			<div class="login-panel panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title" style="text-align: center;">아이디 찾기</h3>
+					<h3 class="panel-title" style="text-align: center;">비밀번호 찾기</h3>
 				</div>
 				<div class="panel-body">
 					<form id="joinForm" action="/join/id_find" method="post">
@@ -17,6 +17,11 @@
 								</label> <label class="radio-inline"> <input type="radio"
 									name="checked" value=1> 사업자
 								</label>
+							</div>
+							<div class="form-group">
+								<input class="form-control" placeholder="아이디" name="id" id="id"
+									type="text" autofocus>
+								<div id="idError" style="color: red;"></div>
 							</div>
 							<div class="form-group">
 								<input class="form-control" placeholder="이름" name="name"
@@ -63,12 +68,20 @@
 
 		// 회원 가입 폼 체크하는 함수
 		$('#joinForm').submit(function(){
+		    var id = $('#id').val();
 		    var name = $('#name').val();
 		    var phone = $('#phone').val();
 		    var email = $('#email').val();
 		    var nameError = $('#nameError');
 		    var phoneError = $('#phoneError');
 		    var emailError = $('#emailError');
+		    
+		    // 아이디 유효성 검사
+		    if (id === '') {
+		        idError.text('아이디를 입력하세요.');
+		    } else {
+		        idError.text('');
+		    }
 
 		    // 이름 유효성 검사
 		    if (name === '') {
