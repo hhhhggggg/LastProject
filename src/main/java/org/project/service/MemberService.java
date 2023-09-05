@@ -13,6 +13,5 @@ public interface MemberService {
 	public MemberVO getUserInfo(String id);
 
 	public String findId(String name, String email, String phone);
-		// TODO Auto-generated method stub
 	
 }

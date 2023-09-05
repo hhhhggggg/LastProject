@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.project.domain.MemberVO;
 import org.project.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,6 +25,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/join/*")
 public class MemberController {
+	@Autowired
 	private MemberService service;
 
 	@GetMapping("/register")
@@ -90,19 +92,21 @@ public class MemberController {
 		}
 	}
 	@GetMapping("/id_find")
-	public void findId() {
-		log.info("id_find Get");
+	public String findId() {
+		return "join/id_find";
 	}
 	
 	@PostMapping("/id_find")
-	public String findId(@RequestParam("name") String name,
+	public String findId(
+			@RequestParam("name") String name,
 			@RequestParam("email") String email,
-			@RequestParam("phone") String phone,Model model) {
+			@RequestParam("phone") String phone, Model model) {
 		// MemberService를 호출하여 아이디 찾기 로직 수행
-        String foundId = MemberService.findId(name, email, phone);
+        String foundId = service.findId(name, email, phone);
 
         if (foundId != null) {
             model.addAttribute("message", "아이디는 " + foundId + " 입니다.");
+            model.addAttribute("foundId", foundId);
         } else {
             model.addAttribute("message", "일치하는 아이디를 찾을 수 없습니다.");
         }

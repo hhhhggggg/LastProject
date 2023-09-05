@@ -26,7 +26,7 @@
 			
 	</select>
 	    <select id="findId" parameterType="map" resultType="string">
-        SELECT id FROM members
+        SELECT id FROM tbl_user
         WHERE name = #{name} AND email = #{email} AND phone = #{phone}
     </select>
 
