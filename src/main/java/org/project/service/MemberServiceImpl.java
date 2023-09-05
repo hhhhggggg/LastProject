@@ -1,6 +1,10 @@
 package org.project.service;
 
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import org.project.domain.MemberVO;
 import org.project.mapper.MemberMapper;
 
@@ -65,9 +69,16 @@ public class MemberServiceImpl implements MemberService {
 	}
 	@Override
 	public String findId(String name, String email, String phone) {
-		String foundId = membermapper.findId(name, email, phone);
-		return foundId;
-	        // MemberMapper를 사용하여 이메일을 기반으로 아이디를 찾는 로직 구현
-	    }
+	    Map<String, Object> paramMap = new HashMap<>();
+	    paramMap.put("name", name);
+	    paramMap.put("email", email);
+	    paramMap.put("phone", phone);
+	    
+	    // MemberMapper를 사용하여 아이디를 데이터베이스에서 조회
+	    String foundId = membermapper.findId(paramMap);
+	    
+	    // 아이디를 찾지 못한 경우 null을 반환
+	    return foundId;
+	}
 
 }
