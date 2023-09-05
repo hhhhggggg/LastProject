@@ -65,7 +65,7 @@
 								<c:when test="${dateList.value=='today'}">
 									<td class="today">
 										<div class="date">${dateList.date}</div>
-										<div></div>
+										<a class = "contents">그니까 여기에 이제 무언가를 쓰면 된다는 거지</a>
 									</td>
 								</c:when>
 								<c:when test="${date_status.index%7==6}">
@@ -101,7 +101,7 @@
 <script type="text/javascript">
  $(function(){
 	//기본모달창
-	$('.openMask_board_move').click(function(e){
+	$('#contents').click(function(e){
 
 	  e.preventDefault();
 	  wrapCreateBoardByMask();
