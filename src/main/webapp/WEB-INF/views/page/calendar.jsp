@@ -2,7 +2,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="java.util.Calendar"%>
-<%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%-- <c:set var="path" value="${pageContent.request/contextPath}" /> --%>
@@ -12,7 +11,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
     <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <link href="${path}/resources/css/main.css" rel="stylesheet" type="text/css">
     <link href="${path}/resources/css/cal.css" rel="stylesheet" type="text/css">
     <script src="${path}/resources/js/board.js"></script>
@@ -40,7 +38,7 @@
                 <a class="before_after_year" href="/calendar/do?year=${today_info/search_year + 1}&month=${today_info.search_month - 1}">&gt;</a>
             </div>
             <div class="today_button_div">
-                <button type="button" class="buttonstyle" onclick="javascript:location.href='/valendar.do'" style="height: 30px; width: 80px;">Today</button>
+                <button type="button" class="buttonstyle" onclick="javascript:location.href='/calendar.do'" style="height: 30px; width: 80px;">Today</button>
             </div>
             <table class="cal_body">
                 <thead>

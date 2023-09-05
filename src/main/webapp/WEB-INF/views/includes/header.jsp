@@ -59,7 +59,7 @@
             </ul>
           </li>
 
-          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="/page/calendar">Calendar</a></li>
           <li><a href="qna.html">QnA</a></li>
         </ul>
       </nav><!-- .navbar -->
