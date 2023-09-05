@@ -31,6 +31,8 @@
 							<!-- Change this to a button or input when using this as a form -->
 							<button type="submit" class="btn btn-lg btn-success btn-block">로그인</button>
                             <button type="button" id="registerButton" class="btn btn-lg btn-primary btn-block" onclick="location.href='/join/register'">회원가입</button>
+                            <button type="button" id="id_findButton" class="btn btn-lg btn-primary btn-block" onclick="location.href='/join/id_find'">아이디찾기</button>
+                            <button type="button" id="pw_findButton" class="btn btn-lg btn-primary btn-block" onclick="location.href='/join/pw_find'">비밀번호찾기</button>
                        </fieldset>
 					</form>
 				</div>

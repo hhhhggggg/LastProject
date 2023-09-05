@@ -54,6 +54,9 @@ public class MemberServiceImpl implements MemberService {
 		return membermapper.getUserInfo(id);
 	}
 	
-	
+	public String findId(String name, String email, String phone) {
+	        // MemberMapper를 사용하여 이메일을 기반으로 아이디를 찾는 로직 구현
+	    return MemberMapper.findId(name, email, phone);
+	    }
 	
 }

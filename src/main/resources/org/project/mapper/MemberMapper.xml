@@ -25,5 +25,9 @@
 		select count(*) from tbl_user where id = #{id}
 			
 	</select>
+	    <select id="findId" parameterType="map" resultType="string">
+        SELECT id FROM members
+        WHERE name = #{name} AND email = #{email} AND phone = #{phone}
+    </select>
 
 </mapper>
