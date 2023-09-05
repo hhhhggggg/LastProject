@@ -32,7 +32,7 @@
 	</select>
 	    <select id="findId" parameterType="map" resultType="string">
         SELECT id FROM tbl_user
-        WHERE name = #{name} AND email = #{email} AND phone = #{phone}
+        WHERE name = #{name} AND email = #{email} AND phone = #{phone} AND checked = #{checked}
     </select>
 
 </mapper>

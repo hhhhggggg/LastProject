@@ -106,9 +106,10 @@ public class MemberController {
 	public String findId(
 			@RequestParam("name") String name,
 			@RequestParam("email") String email,
+			@RequestParam("checked") int checked,
 			@RequestParam("phone") String phone, Model model) {
 		// MemberService를 호출하여 아이디 찾기 로직 수행
-        String foundId = service.findId(name, email, phone);
+        String foundId = service.findId(name, email, phone, checked);
 
         if (foundId != null) {
             model.addAttribute("message", "아이디는 " + foundId + " 입니다.");
