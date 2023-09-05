@@ -54,18 +54,17 @@ public class MemberController {
 		    session.invalidate();
 			return "/join/login";
 		}
-		return "redirect:/join/index";// 로그인 o
+		return "redirect:/join/main";// 로그인 o
 	}
 
 	@PostMapping("/login")
 	public String login(MemberVO membervo, HttpSession session, RedirectAttributes rttr) {
-		log.info("login post, pw -> " + membervo.getId());
+		log.info("login post, Id -> " + membervo.getId());
 		String checkId = service.login(membervo.getId(), membervo.getPw(), membervo.getChecked());
-	//아령하세요 
 		if (checkId != null && checkId.equals(membervo.getId())) {
 		    session.setAttribute("id", checkId);
-		    log.info(checkId + "->index");
-		    return "redirect:/join/index";
+		    log.info(checkId + "->main");
+		    return "redirect:/join/main";
 		}
 		rttr.addFlashAttribute("result", checkId);
 		log.info(checkId+"->login");
@@ -77,13 +76,13 @@ public class MemberController {
 		log.info("logout");
 	    session.invalidate();
 	    log.info("logout");
-	    return "/join/index";
+	    return "/join/main";
 	}
 
-	@GetMapping("/index")
-	public void index(HttpSession session, Model model) {
+	@GetMapping("/main")
+	public void main(HttpSession session, Model model) {
 		String id = (String) session.getAttribute("id");
-		log.info("index Get");
+		log.info("main Get");
 		if (id != null) {
 			MemberVO membervo = service.getUserInfo(id);
 			model.addAttribute("user", membervo);
