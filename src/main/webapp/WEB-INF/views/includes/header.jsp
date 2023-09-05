@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix ="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix ="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,20 +63,17 @@
           <li><a href="qna.html">QnA</a></li>
         </ul>
       </nav><!-- .navbar -->
-
       <div class="position-relative">
-		<c:if test="${not empty user}">
-		  <!-- 로그인 하지 않았을 때. -->
-		  <a href="#" class="mx-2"><span class="bi-person-fill"></span></a>
-		  <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
-		  <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
-		</c:if>
-		<c:if test="${not empty user}">
-			<form action="/join/logout" method="post">
-				<button type="submit"><span class="bi-power"></span></button>
-			</form>
-		</c:if>
-		
+<!--       el이랑 jstl로 조건문 만들어 보기 -->
+		<a href="#" class="mx-2" id="myPage" style="display: ${empty user ? 'inline' : 'none'}"><span class="bi-person-fill"></span></a>
+		<a href="/join/login" class="mx-2" id="logoutIn" style="display: ${empty user ? 'inline' : 'none'}"><span class="bi-twitter"></span></a>
+		<a href="/join/register" class="mx-2" id="register" style="display: ${empty user ? 'inline' : 'none'}"><span class="bi-instagram"></span></a>
+		<a ${empty user ? 'style="display:none;"' : ''}>${user.name }
+		        <c:if test="${user.checked == 1}">(사업자)</c:if>
+	    </a>
+		<a href="/join/logout" class="mx-2" id="logoutLink" style="display: ${not empty user ? 'inline' : 'none'}"><span class="bi-power"></span></a>
+
+		<!-- JavaScript -->
         <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
         <i class="bi bi-list mobile-nav-toggle"></i>
 
@@ -93,4 +92,3 @@
 
   </header><!-- End Header -->
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
