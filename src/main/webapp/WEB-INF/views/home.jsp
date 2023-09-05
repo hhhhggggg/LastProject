@@ -6,7 +6,5 @@
 	<title>Home</title>
 </head>
 <body>
-    <a href="/join/login">login</a>
-    <a href="/join/register">register</a>
 </body>
 </html>

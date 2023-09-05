@@ -48,6 +48,8 @@
 								style="display: none; width: 150px; height: 100px; border: 1px solid; text-align: center;">
 								첨부파일 공간 대충 느낌만</div>
 							<button type="submit" class="btn btn-lg btn-success btn-block">가입하기</button>
+							<button type="button" class="btn btn-lg btn-primary btn-block" onclick="location.href='/join/main'">메인</button>
+                           
 						</fieldset>
 					</form>
 				</div>

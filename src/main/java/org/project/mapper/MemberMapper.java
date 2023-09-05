@@ -15,4 +15,6 @@ public interface MemberMapper {
 
 	public String findId(String name, String email, String phone);
 
+	public int IsEmailValid(String email);
+
 }

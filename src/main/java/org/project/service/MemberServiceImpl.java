@@ -48,6 +48,15 @@ public class MemberServiceImpl implements MemberService {
 		
 		return result;
 	}
+	@Override
+	public boolean registerEmailCheck(String email) {
+		boolean result = false;
+		
+		if(membermapper.IsEmailValid(email)==0) result = true;
+		
+		return result;
+	}
+	
 
 	@Override
 	public MemberVO getUserInfo(String id) {
@@ -59,5 +68,5 @@ public class MemberServiceImpl implements MemberService {
 		return foundId;
 	        // MemberMapper를 사용하여 이메일을 기반으로 아이디를 찾는 로직 구현
 	    }
-	
+
 }
