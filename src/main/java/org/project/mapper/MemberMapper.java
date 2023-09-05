@@ -18,4 +18,6 @@ public interface MemberMapper {
 		return null;
 	}
 
+	public int IsEmailValid(String email);
+
 }

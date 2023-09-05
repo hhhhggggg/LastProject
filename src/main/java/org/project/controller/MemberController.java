@@ -36,12 +36,19 @@ public class MemberController {
 	@PostMapping("/register")
 	public String register(MemberVO membervo, RedirectAttributes rttr) {
 		log.info("register ->" + membervo);
-		boolean rgChk;
-		rgChk = service.registerIdCheck(membervo.getId());
-		if (rgChk == false) {
+		boolean IDChk;
+		boolean EChk;
+		IDChk = service.registerIdCheck(membervo.getId());
+		EChk = service.registerEmailCheck(membervo.getEmail());
+		if (IDChk == false) {
 			rttr.addFlashAttribute("result", "중복된 ID");
 			return "redirect:/join/register";
 		}
+		else if (EChk == false) {
+			rttr.addFlashAttribute("result", "중복된 EMAIL");
+			return "redirect:/join/register";
+		}
+
 		service.register(membervo);
 		rttr.addFlashAttribute("result", "회원가입 완료");
 		// redirect login
@@ -91,8 +98,7 @@ public class MemberController {
 		}
 	}
 	@GetMapping("/id_find")
-	public String findId() {
-		return "join/id_find";
+	public void findId() {
 	}
 	
 	@PostMapping("/id_find")
@@ -112,6 +118,8 @@ public class MemberController {
 
         return "/join/id_find_result"; // 결과를 표시할 JSP 파일의 이름 반환
     }
+
+	
 	@GetMapping("/id_find_result")
 	public void findId_result() {
 		log.info("id_find_result Get");

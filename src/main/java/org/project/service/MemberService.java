@@ -13,5 +13,7 @@ public interface MemberService {
 	public MemberVO getUserInfo(String id);
 
 	public String findId(String name, String email, String phone);
+
+	public boolean registerEmailCheck(String email);
 	
 }
