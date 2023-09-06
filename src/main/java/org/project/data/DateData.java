@@ -9,6 +9,7 @@ import java.util.Map;
 import lombok.Data;
 
 @Data
+
 public class DateData {
 
 	String year = "";
@@ -115,9 +116,4 @@ public class DateData {
 			this.value = value;
 		}
 	}
-
-	public DateData() {
-	}
-
-
 }
