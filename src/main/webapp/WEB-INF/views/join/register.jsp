@@ -121,9 +121,9 @@
 		    }
 
 		    // 전화번호 유효성 검사 (정규 표현식 사용)
-		    var phoneCheck = /^[0-9]{3}-[0-9]{4}-[0-9]{4}$/;
+		    var phoneCheck = /^[0-9]{3}[0-9]{4}[0-9]{4}$/;
 		    if (!phoneCheck.test(phone)) {
-		        phoneError.text('전화번호를 올바른 형식(ex: 010-0000-0000)으로 입력하세요.');
+		        phoneError.text('전화번호를 올바른 형식(ex: 01000000000)으로 입력하세요.');
 		    } else {
 		        phoneError.text('');
 		    }
