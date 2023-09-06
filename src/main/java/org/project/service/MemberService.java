@@ -17,6 +17,9 @@ public interface MemberService {
 	public String findPw(String id, String name, String email, String phone, int checked);
 	
 	public boolean registerEmailCheck(String email);
+
+	public void register2(MemberVO member);
+
 	
 	
 }
