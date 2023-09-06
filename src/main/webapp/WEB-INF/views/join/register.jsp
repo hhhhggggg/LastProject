@@ -9,7 +9,7 @@
 					<h3 class="panel-title" style="text-align: center;">회원가입</h3>
 				</div>
 				<div class="panel-body">
-					<form id="joinForm" action="/join/register" method="post">
+					<form id="joinForm" action="/join/register" method="post" enctype="multipart/form-data">
 						<fieldset>
 							<div class="form-group">
 								<label class="radio-inline"> <input type="radio"
@@ -44,9 +44,8 @@
 									id="email" type="email">
 								<div id="emailError" style="color: red;"></div>
 							</div>
-							<div id ="attachArea">
-								파일 선택 : <input type="file" name="file">
-								<input type="button" value="전송">
+							<div id ="attachArea" style="display: none;">
+								<input type="file" name="file">
 							</div>
 							<button type="submit" class="btn btn-lg btn-success btn-block">가입하기</button>
 							<button type="button" class="btn btn-lg btn-primary btn-block" onclick="location.href='/join/main'">메인</button>
@@ -76,14 +75,16 @@
             }
             alert(result);
         }
-		// 회원 유형에 따른 첨부파일 영역 표시/숨김
-		$('input[name="checked"]').on('change', function() {
-			if ($(this).val() === '1') {
-				$('#attachArea').show();
-			} else {
-				$('#attachArea').hide();
-			}
-		});
+
+        // 회원 유형에 따른 첨부파일 영역 표시/숨김
+        $('input[name="checked"]').on('change', function () {
+            if ($(this).val() === '1') {
+                $('#attachArea').show();
+                $('#joinForm').attr('action', '/join/upload');
+            } else {
+                $('#attachArea').hide();
+            }
+        });
 
 		// 회원 가입 폼 체크하는 함수
 		$('#joinForm').submit(function(){

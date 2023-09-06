@@ -11,6 +11,7 @@ public class MemberVO {
 	private String phone;
 	private String email;
 	private int checked;
+	private int validuser;
 
 	
 }
