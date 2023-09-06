@@ -17,9 +17,9 @@
     
     <%-- 아이디를 표시합니다. --%>
     <c:if test="${foundPw != null}">
-        <p>찾은 암호: <c:out value="${founPw}" /></p>
     </c:if>
     
     <p><a href="/join/pw_find">다시 찾기</a></p>
+    <p><a href="/join/login">로그인</a></p>
 </body>
 </html>
