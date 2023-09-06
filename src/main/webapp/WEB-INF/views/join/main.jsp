@@ -485,5 +485,21 @@
       </div>
     </section><!-- End Lifestyle Category Section -->
   </main><!-- End #main -->
-	
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var result = '<c:out value="${result}"/>';
+
+        checkAlert(result);
+
+        history.replaceState({}, null, null);
+
+        function checkAlert(result) {
+            if (result === '' || history.state) {
+                return;
+            }
+            alert(result);
+        }
+    });
+</script>
 <%@include file="../includes/footer.jsp"%>

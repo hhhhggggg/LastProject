@@ -10,6 +10,12 @@
 		values(seq_user.nextval, #{id}, #{pw}, #{name},#{phone}, #{email}, #{checked})
 		
 	</insert>
+	<insert id="insert2">
+	
+		insert into tbl_user(userNum, id, pw, name, phone, email,checked,validuser)
+		values(seq_user.nextval, #{id}, #{pw}, #{name},#{phone}, #{email}, #{checked},0)
+		
+	</insert>
 	<select id="getUserInfo" resultType="org.project.domain.MemberVO">
 		select * from tbl_user where id = #{id}
 	</select>
@@ -30,9 +36,13 @@
 		select count(*) from tbl_user where email = #{email}
 			
 	</select>
-	    <select id="findId" parameterType="map" resultType="string">
+	<select id="findId" parameterType="map" resultType="string">
         SELECT id FROM tbl_user
         WHERE name = #{name} AND email = #{email} AND phone = #{phone} AND checked = #{checked}
+    </select>
+    <select id="findPw" parameterType="map" resultType="string">
+        SELECT pw FROM tbl_user
+        WHERE id = #{id} AND name = #{name} AND email = #{email} AND phone = #{phone} AND checked = #{checked}
     </select>
 
 </mapper>
