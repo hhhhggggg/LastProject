@@ -1,8 +1,15 @@
 package org.project.mapper;
 
+import org.project.domain.ScheduleVO;
 
-//여기에 데이터 캘린더에 띄울 가져오는거 넣을예정 입니다. 
 public interface ScheduleMapper {
 
+	public ScheduleVO getCategory(String genre);
+	
 	public int selectCnt();
+	
+	public String genre();
+	
+	
+	
 }
