@@ -7,7 +7,7 @@
 <select id = "selectCnt" resultType = "int">
 <![CDATA[
 	select count(*) 
-	from tbl_Musical
+	from tbl_musical
 	where sysdate > m_start_date and sysdate < m_end_date
 	]]>
 
