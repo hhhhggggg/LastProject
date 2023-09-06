@@ -92,7 +92,7 @@ public class MemberServiceImpl implements MemberService {
 	    String foundPw = membermapper.findPw(paramMap);
 	    
 	    // 아이디를 찾지 못한 경우 null을 반환
-	    return foundPW;
+	    return foundPw;
 	}
 
 }

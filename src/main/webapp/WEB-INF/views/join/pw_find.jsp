@@ -9,7 +9,7 @@
 					<h3 class="panel-title" style="text-align: center;">비밀번호 찾기</h3>
 				</div>
 				<div class="panel-body">
-					<form id="joinForm" action="/join/id_find" method="post">
+					<form id="joinForm" action="/join/pw_find" method="post">
 						<fieldset>
 							<div class="form-group">
 								<label class="radio-inline"> <input type="radio"
