@@ -17,8 +17,6 @@
 	</p>
 
 	<%-- 아이디를 표시합니다. --%>
-	<c:if test="${foundId != null}">
-	</c:if>
 
 	<p><a href="/join/id_find">다시 찾기</a></p>
 	<p><a href="/join/pw_find">패스워드 찾기</a></p>
