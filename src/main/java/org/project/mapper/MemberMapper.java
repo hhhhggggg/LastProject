@@ -18,4 +18,5 @@ public interface MemberMapper {
 
 	public String findId(Map<String, Object> paramMap);
 
+	public String findPw(Map<String, Object> paramMap);
 }

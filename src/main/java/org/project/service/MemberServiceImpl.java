@@ -68,17 +68,31 @@ public class MemberServiceImpl implements MemberService {
 		return membermapper.getUserInfo(id);
 	}
 	@Override
-	public String findId(String name, String email, String phone) {
+	public String findId(String name, String email, String phone, int checked) {
 	    Map<String, Object> paramMap = new HashMap<>();
 	    paramMap.put("name", name);
 	    paramMap.put("email", email);
 	    paramMap.put("phone", phone);
-	    
+	    paramMap.put("checked", checked);
 	    // MemberMapper를 사용하여 아이디를 데이터베이스에서 조회
 	    String foundId = membermapper.findId(paramMap);
 	    
 	    // 아이디를 찾지 못한 경우 null을 반환
 	    return foundId;
+	}
+	@Override
+	public String findPw(String id, String name, String email, String phone, int checked) {
+	    Map<String, Object> paramMap = new HashMap<>();
+	    paramMap.put("id", id);
+	    paramMap.put("name", name);
+	    paramMap.put("email", email);
+	    paramMap.put("phone", phone);
+	    paramMap.put("checked", checked);
+	    // MemberMapper를 사용하여 아이디를 데이터베이스에서 조회
+	    String foundPw = membermapper.findPw(paramMap);
+	    
+	    // 아이디를 찾지 못한 경우 null을 반환
+	    return foundPW;
 	}
 
 }

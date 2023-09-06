@@ -101,9 +101,10 @@ public class MemberController {
 	public String findId(
 			@RequestParam("name") String name,
 			@RequestParam("email") String email,
+			@RequestParam("checked") int checked,
 			@RequestParam("phone") String phone, Model model) {
 		// MemberService를 호출하여 아이디 찾기 로직 수행
-        String foundId = service.findId(name, email, phone);
+        String foundId = service.findId(name, email, phone, checked);
 
         if (foundId != null) {
             model.addAttribute("message", "아이디는 " + foundId + " 입니다.");
@@ -114,7 +115,29 @@ public class MemberController {
 
         return "/join/id_find_result"; // 결과를 표시할 JSP 파일의 이름 반환
     }
+	@GetMapping("/id_find")
+	public void findPw() {
+		log.info("id_find Get");
+	}
+	
+	@PostMapping("/id_find")
+	public String findPW(
+			@RequestParam("name") String name,
+			@RequestParam("email") String email,
+			@RequestParam("checked") int checked,
+			@RequestParam("phone") String phone, Model model) {
+		// MemberService를 호출하여 아이디 찾기 로직 수행
+        String foundPw = service.findPw(name, email, phone, checked);
 
+        if (foundPw != null) {
+            model.addAttribute("message", "아이디는 " + foundPw + " 입니다.");
+            model.addAttribute("foundId", foundPw);
+        } else {
+            model.addAttribute("message", "일치하는 아이디를 찾을 수 없습니다.");
+        }
+
+        return "/join/id_find_result"; // 결과를 표시할 JSP 파일의 이름 반환
+    }
 	
 	@GetMapping("/id_find_result")
 	public void findId_result() {
