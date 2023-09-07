@@ -48,19 +48,11 @@ pageEncoding="UTF-8"%>
 
       <nav id="navbar" class="navbar">
         <ul>
-<<<<<<< HEAD
-          <li><a href="index.html">Home</a></li>
-          <li><a href="news.html">News</a></li>
-          <li class="dropdown"><a href="./main"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="../page/musical">뮤지컬</a></li>
-=======
           <li><a href="../join/main">Home</a></li>
           <li><a href="/page/news">News</a></li>
           <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="./musical.jsp">뮤지컬</a></li>
->>>>>>> ce55704771c35ec70f7a81871f28466a02c771ba
               <li><a href="#">콘서트</a></li>
               <li><a href="#">페스티벌</a></li>
               <li><a href="#">지역축제</a></li>
