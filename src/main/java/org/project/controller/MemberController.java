@@ -45,7 +45,7 @@ public class MemberController {
 		System.out.println("용량크기(byte) : " + size);
 		//서버에 저장할 파일이름 fileextension으로 .jsp이런식의  확장자 명을 구함
 		String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."),fileRealName.length());
-		String uploadFolder = "D:\\fileUpload";
+		String uploadFolder = "C:\\fileUpload";
 		
 		// 폴더가 없는 경우 폴더를 생성합니다.
 	    File folder = new File(uploadFolder);
@@ -89,7 +89,7 @@ public class MemberController {
 			rttr.addFlashAttribute("result", "중복된 EMAIL");
 			return "redirect:/join/register";
 		}
-
+		membervo.setFilename(uniqueName);
 		service.register2(membervo);
 		///////////////////////////////여기서는 회원가입을 눌러도 관리자 승인하에 회원가입이 되는 거라 그냥 메인으로 보냄
 		rttr.addFlashAttribute("result", "관리자의 승인을 기다리세요");

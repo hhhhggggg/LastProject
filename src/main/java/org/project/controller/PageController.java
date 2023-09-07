@@ -22,9 +22,14 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @RequestMapping("/page/*")
+<<<<<<< HEAD:src/main/java/org/project/controller/ScheduleController.java
 public class ScheduleController {
 	@Autowired
 	private ScheduleService service;
+=======
+public class PageController {
+	
+>>>>>>> 0b336fcbe7dc06bb922ee637baeb6a4c5430f5e7:src/main/java/org/project/controller/PageController.java
 	
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
