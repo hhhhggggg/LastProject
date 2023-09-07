@@ -28,7 +28,7 @@
 													<a class="prdCastBtn" data-toggle="self"
 														data-toast="prdCast" aria-checked="false"
 														aria-label="티켓캐스트 등록" role="checkbox" href="#"
-														data-popup-hover="prdCast">           즐겨찾기 일단 생긴거만</a>
+														data-popup-hover="prdCast">즐겨찾기 일단 생긴거만</a>
 												</div>
 											</div>
 										</div>
