@@ -651,14 +651,14 @@ section {
 }
 
 .img-bg .img-bg-inner {
-  position: relative;
+/*   position: relative;
   z-index: 2;
   max-width: 700px;
   position: relative;
   padding-left: 100px;
   padding-right: 100px;
   margin-bottom: 50px;
-}
+ */}
 
 @media (max-width: 768px) {
   .img-bg .img-bg-inner {

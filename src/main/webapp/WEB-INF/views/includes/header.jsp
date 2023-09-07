@@ -48,8 +48,8 @@ pageEncoding="UTF-8"%>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="news.html">News</a></li>
+          <li><a href="main">Home</a></li>
+          <li><a href="/page/news">News</a></li>
           <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="#">뮤지컬</a></li>
@@ -60,7 +60,7 @@ pageEncoding="UTF-8"%>
           </li>
 
           <li><a href="/page/calendar">Calendar</a></li>
-          <li><a href="qna.html">QnA</a></li>
+          <li><a href="qna.html">Notice</a></li>
         </ul>
       </nav><!-- .navbar -->
       <div class="position-relative">

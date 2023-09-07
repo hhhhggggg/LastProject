@@ -46,7 +46,7 @@
 <div class="container">
 	<div class="row" style="margin-top: 0px;">
 		<div class="col-md-4 col-md-offset-4">
-			<div class="panel panel-default">
+			<div class="login-panel panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title" style="text-align: center;">아이디 찾기</h3>
 				</div>
