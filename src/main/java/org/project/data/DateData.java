@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 public class DateData {
@@ -115,9 +116,4 @@ public class DateData {
 			this.value = value;
 		}
 	}
-
-	public DateData() {
-	}
-
-
 }

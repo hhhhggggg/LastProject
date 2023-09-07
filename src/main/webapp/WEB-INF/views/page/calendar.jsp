@@ -9,14 +9,8 @@
 <html lang="ko">
 <head>
 <title>캘린더</title>
-<link href="/resources/assets/css/cal.css" rel="stylesheet"
-	type="text/css">
+<link href="/resources/assets/css/cal.css" rel="stylesheet" type="text/css">
 
-<script type="text/javaScript" language="javascript">
-
-
-	
-	</script>
 </head>
 <body>
 	<form name="calendarFrm" id="calendarFrm" action="" method="GET">
@@ -33,18 +27,19 @@
 					&lt; <!-- 이전 달 -->
 				</a> <span class="this_month"> &nbsp;${today_info.search_year}. <c:if
 						test="${today_info.search_month<10}">0</c:if>${today_info.search_month}
-				</span> <a class="before_after_month"
-					href="/calendar.do?year=${today_info.after_year}&month=${today_info.after_month}">
+				</span> 
+				<a class="before_after_month"
+					href="/calendar?year=${today_info.after_year}&month=${today_info.after_month}">
 					<!-- 다음달 --> &gt;
 				</a> <a class="before_after_year"
-					href="/calendar.do?year=${today_info.search_year+1}&month=${today_info.search_month-1}">
+					href="/calendar?year=${today_info.search_year+1}&month=${today_info.search_month-1}">
 					<!-- 다음해 --> &gt;&gt;
 				</a>
 			</div>
 
-			<!-- <div class="today_button_div"> -->
-			<!-- <input type="button" class="today_button" onclick="javascript:location.href='/calendar.do'" value="go today"/> -->
-			<!-- </div> -->
+			<div class="today_button_div">
+			<input type="button" class="today_button" onclick="#" value="go today"/>
+			</div>
 			<table class="calendar_body">
 
 				<thead>
@@ -100,12 +95,12 @@
 </html>
 
 <script type="text/javascript">
- $(function(){
-	//기본모달창
-	$('#contents').click(function(e){
-
-	  e.preventDefault();
-	  wrapCreateBoardByMask();
+	 $(function(){
+		//기본모달창
+		$('#contents').click(function(e){
+	
+		  e.preventDefault();
+		  wrapCreateBoardByMask();
 	});
 
 	//닫기 버튼 눌렀을 때

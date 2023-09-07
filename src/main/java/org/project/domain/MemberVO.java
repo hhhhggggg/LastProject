@@ -12,6 +12,7 @@ public class MemberVO {
 	private String email;
 	private int checked;
 	private int validuser;
+	private String filename;
 
 	
 }
