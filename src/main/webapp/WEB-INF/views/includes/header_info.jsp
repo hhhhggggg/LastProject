@@ -31,10 +31,10 @@ pageEncoding="UTF-8"%>
 
   <!-- Template Main CSS Files -->
   <link href="/resources/assets/css/variables.css" rel="stylesheet">
-  <link href="/resources/assets/css/main.css?after" rel="stylesheet">
+  <link href="/resources/assets/css/main.css" rel="stylesheet">
 </head>
 
-<body id="product" class="">
+<body>
 
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">

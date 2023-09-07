@@ -695,9 +695,3 @@ li {
 	visibility: visible;
 }
 
-@media screen and (max-width: 1344px) {
-	.topButtonWrapper {
-		overflow: hidden;
-		height: 0;
-	}
-}
