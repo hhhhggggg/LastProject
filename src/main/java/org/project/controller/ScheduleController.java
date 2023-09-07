@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.project.data.DateData;
+import org.project.domain.MemberVO;
 import org.project.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -77,9 +79,20 @@ public class ScheduleController {
 		model.addAttribute("today_info", today_info);
 		return "/page/calendar";
 	}
+<<<<<<< HEAD
 
 	
 	 @GetMapping("/news") public void latestNewsPage() { log.info("News get"); }
 	 
 
+=======
+	@GetMapping("/musical_info")
+	public void main() {
+
+	}
+	@GetMapping("/news")
+	public void latestNewsPage() {
+		log.info("News get");
+	}
+>>>>>>> 44a8e5d3aa822527fa971112730cc33962f34cf8
 }
