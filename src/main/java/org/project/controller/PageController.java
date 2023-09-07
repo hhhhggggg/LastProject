@@ -22,15 +22,9 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @RequestMapping("/page/*")
-<<<<<<< HEAD:src/main/java/org/project/controller/ScheduleController.java
-public class ScheduleController {
-	@Autowired
-	private ScheduleService service;
-=======
+
 public class PageController {
-	
->>>>>>> 0b336fcbe7dc06bb922ee637baeb6a4c5430f5e7:src/main/java/org/project/controller/PageController.java
-	
+		
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
 		log.info("calendar Get");
@@ -74,10 +68,7 @@ public class PageController {
 	    }
 	    System.out.println(dateList);
 
-	    int dataCnt =0;
-	    dataCnt = service.selecCnt();
 	    // 배열에 담음
-	    model.addAttribute("dataCnt",dataCnt);
 	    model.addAttribute("dateList", dateList);     // 날짜 데이터 배열
 	    model.addAttribute("today_info", today_info);
 	    return "/page/calendar";
