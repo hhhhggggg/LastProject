@@ -15,11 +15,11 @@
           <div class="col-6 col-lg-2">
             <h3 class="footer-heading">Navigation</h3>
             <ul class="footer-links list-unstyled">
-              <li><a href="main.jsp"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="news.jsp"><i class="bi bi-chevron-right"></i> News</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Categories</a></li>
-              <li><a href="calendar.jsp"><i class="bi bi-chevron-right"></i> Calendar</a></li>
-              <li><a href="notice.jsp"><i class="bi bi-chevron-right"></i> Notice</a></li>
+              <li><a href="/main.jsp"><i class="bi bi-chevron-right"></i> Home</a></li>
+              <li><a href="/news.jsp"><i class="bi bi-chevron-right"></i> News</a></li>
+              <li><a href="/category.html"><i class="bi bi-chevron-right"></i> Categories</a></li>
+              <li><a href="/calendar.jsp"><i class="bi bi-chevron-right"></i> Calendar</a></li>
+              <li><a href="/notice.jsp"><i class="bi bi-chevron-right"></i> Notice</a></li>
             </ul>
           </div>
           <div class="col-6 col-lg-2">
