@@ -73,6 +73,9 @@ public class ScheduleController {
 	    model.addAttribute("today_info", today_info);
 	    return "/page/calendar";
 	}
-
+	@GetMapping("/news")
+	public void latestNewsPage() {
+		log.info("News get");
+	}
 		
 }

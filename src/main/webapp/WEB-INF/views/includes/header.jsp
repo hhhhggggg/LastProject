@@ -48,7 +48,7 @@ pageEncoding="UTF-8"%>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="main">Home</a></li>
+          <li><a href="../join/main">Home</a></li>
           <li><a href="/page/news">News</a></li>
           <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>

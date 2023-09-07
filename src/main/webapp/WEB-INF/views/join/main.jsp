@@ -11,11 +11,7 @@
             <div class="swiper sliderFeaturedPosts">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-<<<<<<< HEAD
                   <a href="news.html" class="img-bg d-flex align-items-end" style="background-image: url('/resources/assets/img/rebecca.jpg');">
-=======
-                  <a href="news.html" class="img-bg d-flex align-items-end" style="background-image: url('/resources/assets/img/rebeca.jpg');">
->>>>>>> 1e75347f3c18fcb9629a84bc211c2348c759c0c9
                     <div class="img-bg-inner">
                     </div>
                   </a>
