@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.project.data.DateData;
+import org.project.domain.MemberVO;
 import org.project.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -74,5 +76,8 @@ public class ScheduleController {
 	    return "/page/calendar";
 	}
 
-		
+	@GetMapping("/musical_info")
+	public void main() {
+
+	}
 }

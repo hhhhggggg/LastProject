@@ -34,7 +34,7 @@ pageEncoding="UTF-8"%>
   <link href="/resources/assets/css/main.css?after" rel="stylesheet">
 </head>
 
-<body>
+<body id="product" class="">
 
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
