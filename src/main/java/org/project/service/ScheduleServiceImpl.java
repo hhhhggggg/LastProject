@@ -13,8 +13,15 @@ public class ScheduleServiceImpl implements ScheduleMapper {
 
 	@Override
 	public int selectCnt() {
+<<<<<<< HEAD
 		
 		return schedulemapper.selectCnt();
+=======
+		int result;
+		result = schedulemapper.selectCnt();
+		log.info(result);
+		return result;
+>>>>>>> 4552b4368426c55d1ff187769ef2bb2e1d865cc4
 	}
 
 	@Override
