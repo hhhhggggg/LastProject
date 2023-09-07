@@ -80,13 +80,24 @@ public class ScheduleController {
 		return "/page/calendar";
 	}
 
+<<<<<<< HEAD
 	 @GetMapping("/news") public void latestNewsPage() { log.info("News get"); }
 	 
 
 
+=======
+>>>>>>> 6588d8af9bb1e1ed8909d13cd1d2f6eb4ca5cf29
 	@GetMapping("/musical_info")
 	public void main() {
 
 	}
 
+<<<<<<< HEAD
+=======
+	@GetMapping("/news")
+	public void latestNewsPage() {
+		log.info("News get");
+	}
+
+>>>>>>> 6588d8af9bb1e1ed8909d13cd1d2f6eb4ca5cf29
 }
