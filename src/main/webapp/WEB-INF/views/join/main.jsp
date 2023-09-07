@@ -4,16 +4,14 @@
   <main id="main">
     <!-- ======= Hero Slider Section ======= -->
     <section id="hero-slider" class="hero-slider">
-      <div class="container-md" data-aos="fade-in">
+      <div class="container-md" data-aos="fade-in" >
         <div class="row">
           <div class="col-12">
             <div class="swiper sliderFeaturedPosts">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                  <a href="news.html" class="img-bg d-flex align-items-end" style="background-image: url('/resources/assets/img/post-slide-1.jpg');">
+                  <a href="news.html" class="img-bg d-flex align-items-end" style="background-image: url('/resources/assets/img/rebeca.jpg');">
                     <div class="img-bg-inner">
-                      <h2>나 진짜 이거 안되는줄 알고</h2>
-                      <p>멘탈 개터질뻔</p>
                     </div>
                   </a>
                 </div>
@@ -21,8 +19,6 @@
                 <div class="swiper-slide">
                   <a href="news.html" class="img-bg d-flex align-items-end" style="background-image: url('/resources/assets/img/post-slide-2.jpg');">
                     <div class="img-bg-inner">
-                      <h2>부트스트랩은 빨간 상자 왜 뜨는데</h2>
-                      <p>얼탱이가 없네</p>
                     </div>
                   </a>
                 </div>
@@ -30,8 +26,6 @@
                 <div class="swiper-slide">
                   <a href="news.html" class="img-bg d-flex align-items-end" style="background-image: url('/resources/assets/img/post-slide-3.jpg');">
                     <div class="img-bg-inner">
-                      <h2>첨부파일 어케했냐</h2>
-                      <p>안승신</p>
                     </div>
                   </a>
                 </div>
@@ -39,8 +33,6 @@
                 <div class="swiper-slide">
                   <a href="news.html" class="img-bg d-flex align-items-end" style="background-image: url('/resources/assets/img/post-slide-4.jpg');">
                     <div class="img-bg-inner">
-                      <h2>배고파</h2>
-                      <p>꼬르륵</p>
                     </div>
                   </a>
                 </div>
