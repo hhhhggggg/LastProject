@@ -5,13 +5,17 @@
   <main id="main">
     <!-- ======= Hero Slider Section ======= -->
     <section id="hero-slider" class="hero-slider">
-      <div class="container-md" data-aos="fade-in">
+      <div class="container-md" data-aos="fade-in" >
         <div class="row">
           <div class="col-12">
             <div class="swiper sliderFeaturedPosts">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
+<<<<<<< HEAD
                   <a href="news.html" class="img-bg d-flex align-items-end" style="background-image: url('/resources/assets/img/rebecca.jpg');">
+=======
+                  <a href="news.html" class="img-bg d-flex align-items-end" style="background-image: url('/resources/assets/img/rebeca.jpg');">
+>>>>>>> 1e75347f3c18fcb9629a84bc211c2348c759c0c9
                     <div class="img-bg-inner">
                     </div>
                   </a>
@@ -465,5 +469,21 @@
       </div>
     </section><!-- End Lifestyle Category Section -->
   </main><!-- End #main -->
-	
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var result = '<c:out value="${result}"/>';
+
+        checkAlert(result);
+
+        history.replaceState({}, null, null);
+
+        function checkAlert(result) {
+            if (result === '' || history.state) {
+                return;
+            }
+            alert(result);
+        }
+    });
+</script>
 <%@include file="../includes/footer.jsp"%>

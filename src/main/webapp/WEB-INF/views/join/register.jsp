@@ -9,7 +9,7 @@
 					<h3 class="panel-title" style="text-align: center;">회원가입</h3>
 				</div>
 				<div class="panel-body">
-					<form id="joinForm" action="/join/register" method="post">
+					<form id="joinForm" action="/join/register" method="post" enctype="multipart/form-data">
 						<fieldset>
 							<div class="form-group">
 								<label class="radio-inline"> <input type="radio"
@@ -35,7 +35,7 @@
 							</div>
 							<div class="form-group">
 								<input class="form-control"
-									placeholder="전화번호 (ex: 010-0000-0000)" name="phone" id="phone"
+									placeholder="전화번호 ( - 제외)" name="phone" id="phone"
 									type="tel">
 								<div id="phoneError" style="color: red;"></div>
 							</div>
@@ -44,9 +44,8 @@
 									id="email" type="email">
 								<div id="emailError" style="color: red;"></div>
 							</div>
-							<div id ="attachArea">
-								파일 선택 : <input type="file" name="file">
-								<input type="button" value="전송">
+							<div id ="attachArea" style="display: none;">
+								<input type="file" name="file">
 							</div>
 							<button type="submit" class="btn btn-lg btn-success btn-block">가입하기</button>
 							<button type="button" class="btn btn-lg btn-primary btn-block" onclick="location.href='/join/main'">메인</button>
@@ -76,14 +75,16 @@
             }
             alert(result);
         }
-		// 회원 유형에 따른 첨부파일 영역 표시/숨김
-		$('input[name="checked"]').on('change', function() {
-			if ($(this).val() === '1') {
-				$('#attachArea').show();
-			} else {
-				$('#attachArea').hide();
-			}
-		});
+
+        // 회원 유형에 따른 첨부파일 영역 표시/숨김
+        $('input[name="checked"]').on('change', function () {
+            if ($(this).val() === '1') {
+                $('#attachArea').show();
+                $('#joinForm').attr('action', '/join/upload');
+            } else {
+                $('#attachArea').hide();
+            }
+        });
 
 		// 회원 가입 폼 체크하는 함수
 		$('#joinForm').submit(function(){
@@ -120,9 +121,9 @@
 		    }
 
 		    // 전화번호 유효성 검사 (정규 표현식 사용)
-		    var phoneCheck = /^[0-9]{3}-[0-9]{4}-[0-9]{4}$/;
+		    var phoneCheck = /^[0-9]{3}[0-9]{4}[0-9]{4}$/;
 		    if (!phoneCheck.test(phone)) {
-		        phoneError.text('전화번호를 올바른 형식(ex: 010-0000-0000)으로 입력하세요.');
+		        phoneError.text('전화번호를 올바른 형식(ex: 01000000000)으로 입력하세요.');
 		    } else {
 		        phoneError.text('');
 		    }

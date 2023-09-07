@@ -10,6 +10,12 @@
 		values(seq_user.nextval, #{id}, #{pw}, #{name},#{phone}, #{email}, #{checked})
 		
 	</insert>
+	<insert id="insert2">
+	
+		insert into tbl_user(userNum, id, pw, name, phone, email,checked,validuser,filename)
+		values(seq_user.nextval, #{id}, #{pw}, #{name},#{phone}, #{email}, #{checked},0,#{filename})
+		
+	</insert>
 	<select id="getUserInfo" resultType="org.project.domain.MemberVO">
 		select * from tbl_user where id = #{id}
 	</select>

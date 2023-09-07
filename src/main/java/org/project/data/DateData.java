@@ -1,14 +1,17 @@
 package org.project.data;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class DateData {
 
 	String year = "";
@@ -38,10 +41,9 @@ public class DateData {
 		Map<String, Integer> today_Data = new HashMap<String, Integer>();
 		Calendar cal = Calendar.getInstance();
 		cal.set(Integer.parseInt(dateData.getYear()), Integer.parseInt(dateData.getMonth()), 1);
-
-		int startDay = cal.getMinimum(java.util.Calendar.DATE);
-		int endDay = cal.getActualMaximum(java.util.Calendar.DAY_OF_MONTH);
-		int start = cal.get(java.util.Calendar.DAY_OF_WEEK);
+		int startDay = cal.getMinimum(Calendar.DATE);
+		int endDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+		int start = cal.get(Calendar.DAY_OF_WEEK);
 		
 		Calendar todayCal = Calendar.getInstance();
 		SimpleDateFormat ysdf = new SimpleDateFormat("yyyy");
@@ -115,9 +117,4 @@ public class DateData {
 			this.value = value;
 		}
 	}
-
-	public DateData() {
-	}
-
-
 }

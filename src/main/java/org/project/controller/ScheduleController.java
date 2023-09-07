@@ -8,21 +8,22 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.project.data.DateData;
-import org.project.service.MemberService;
+import org.project.service.ScheduleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
 @RequestMapping("/page/*")
-public class PageController {
-	
-	
+
+public class ScheduleController {
+	@Autowired
+	ScheduleService service;
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
 		log.info("calendar Get");
@@ -65,8 +66,9 @@ public class PageController {
 	        }
 	    }
 	    System.out.println(dateList);
-
+	    int todayCnt = service.selectCnt();
 	    // 배열에 담음
+	    model.addAttribute("todayCnt",todayCnt);
 	    model.addAttribute("dateList", dateList);     // 날짜 데이터 배열
 	    model.addAttribute("today_info", today_info);
 	    return "/page/calendar";

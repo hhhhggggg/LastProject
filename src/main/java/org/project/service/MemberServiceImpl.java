@@ -25,12 +25,23 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+	public void register2(MemberVO member) {
+		log.info(member);
+		membermapper.insert2(member);
+		
+	}
+	
+	@Override
 	public String login(String id, String pw, int checked) {
 		MemberVO membervo = membermapper.getUserInfo(id);
 		//만약에 유저 정보가 있다면
 		if (membervo != null) {
 			//유저 타입도 같고 패스워드도 맞으면 
 			if (membervo.getPw().equals(pw) && membervo.getChecked()==checked) {
+				if (membervo.getValiduser()==0)
+				{
+					return "승인이 되지 않은 사용자 입니다.";
+				}
 				//성공
 				return membervo.getId();
 			}
@@ -40,6 +51,7 @@ public class MemberServiceImpl implements MemberService {
 			else if (membervo.getChecked()!=checked) {
 				return "유저 타입이 다릅니다.";
 			}
+
 		}
 		return "없는 아이디 입니다.";
 	}
@@ -94,5 +106,6 @@ public class MemberServiceImpl implements MemberService {
 	    // 아이디를 찾지 못한 경우 null을 반환
 	    return foundPw;
 	}
+
 
 }

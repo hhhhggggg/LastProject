@@ -31,7 +31,7 @@ pageEncoding="UTF-8"%>
 
   <!-- Template Main CSS Files -->
   <link href="/resources/assets/css/variables.css" rel="stylesheet">
-  <link href="/resources/assets/css/main.css" rel="stylesheet">
+  <link href="/resources/assets/css/main.css?after" rel="stylesheet">
 </head>
 
 <body>
@@ -66,12 +66,12 @@ pageEncoding="UTF-8"%>
       <div class="position-relative">
 <!--       el이랑 jstl로 조건문 만들어 보기 -->
 		<a href="#" class="mx-2" id="myPage" style="display: ${empty user ? 'inline' : 'none'}"><span class="bi-person-fill"></span></a>
-		<a href="/join/login" class="mx-2" id="logoutIn" style="display: ${empty user ? 'inline' : 'none'}"><span class="bi-twitter"></span></a>
-		<a href="/join/register" class="mx-2" id="register" style="display: ${empty user ? 'inline' : 'none'}"><span class="bi-instagram"></span></a>
+		<a href="/join/login" class="mx-2" id="logIn" style="display: ${empty user ? 'inline' : 'none'}">Sign-In</a>
+		<a href="/join/register" class="mx-2" id="register" style="display: ${empty user ? 'inline' : 'none'}">Sign-Up</a>
 		<a ${empty user ? 'style="display:none;"' : ''}>${user.name }
 		        <c:if test="${user.checked == 1}">(사업자)</c:if>
 	    </a>
-		<a href="/join/logout" class="mx-2" id="logoutLink" style="display: ${not empty user ? 'inline' : 'none'}"><span class="bi-power"></span></a>
+		<a href="/join/logout" class="mx-2" id="logoutLink" style="display: ${not empty user ? 'inline' : 'none'}">Sign-Out</a>
 
 		<!-- JavaScript -->
         <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
