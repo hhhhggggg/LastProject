@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../includes/header.jsp"%>
+
   <main id="main">
     <!-- ======= Hero Slider Section ======= -->
     <section id="hero-slider" class="hero-slider">

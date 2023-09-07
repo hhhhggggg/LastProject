@@ -31,7 +31,7 @@ pageEncoding="UTF-8"%>
 
   <!-- Template Main CSS Files -->
   <link href="/resources/assets/css/variables.css" rel="stylesheet">
-  <link href="/resources/assets/css/main.css" rel="stylesheet">
+  <link href="/resources/assets/css/main.css?after" rel="stylesheet">
 </head>
 
 <body>

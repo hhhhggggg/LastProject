@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class ScheduleServiceImpl implements ScheduleMapper {
+public class ScheduleServiceImpl implements ScheduleService {
 	private ScheduleMapper schedulemapper;
 
 	@Override
