@@ -8,12 +8,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.project.data.DateData;
-<<<<<<< HEAD:src/main/java/org/project/controller/ScheduleController.java
-=======
-import org.project.service.MemberService;
-import org.project.service.ScheduleService;
-import org.springframework.beans.factory.annotation.Autowired;
->>>>>>> 4552b4368426c55d1ff187769ef2bb2e1d865cc4:src/main/java/org/project/controller/PageController.java
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,14 +18,9 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @RequestMapping("/page/*")
-<<<<<<< HEAD:src/main/java/org/project/controller/ScheduleController.java
-public class ScheduleController {
-	
-=======
 
-public class PageController {
-		
->>>>>>> 4552b4368426c55d1ff187769ef2bb2e1d865cc4:src/main/java/org/project/controller/PageController.java
+public class ScheduleController {
+
 	@GetMapping("/calendar")
 	public String calendar(Model model, HttpServletRequest request, DateData dateData) {
 		log.info("calendar Get");
