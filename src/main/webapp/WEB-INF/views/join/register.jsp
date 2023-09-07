@@ -35,7 +35,7 @@
 							</div>
 							<div class="form-group">
 								<input class="form-control"
-									placeholder="전화번호 (ex: 010-0000-0000)" name="phone" id="phone"
+									placeholder="전화번호 ( - 제외)" name="phone" id="phone"
 									type="tel">
 								<div id="phoneError" style="color: red;"></div>
 							</div>

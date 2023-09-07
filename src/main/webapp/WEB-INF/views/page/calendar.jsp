@@ -20,25 +20,25 @@
 			<!--날짜 네비게이션  -->
 			<div class="navigation">
 				<a class="before_after_year"
-					href="./calendar.do?year=${today_info.search_year-1}&month=${today_info.search_month-1}">
+					href="./calendar?year=${today_info.search_year-1}&month=${today_info.search_month-1}">
 					&lt;&lt; <!-- 이전년도 -->
 				</a> <a class="before_after_month"
-					href="./calendar.do?year=${today_info.before_year}&month=${today_info.before_month}">
+					href="./calendar?year=${today_info.before_year}&month=${today_info.before_month}">
 					&lt; <!-- 이전 달 -->
 				</a> <span class="this_month"> &nbsp;${today_info.search_year}. <c:if
 						test="${today_info.search_month<10}">0</c:if>${today_info.search_month}
 				</span> 
 				<a class="before_after_month"
-					href="/calendar?year=${today_info.after_year}&month=${today_info.after_month}">
+					href="./calendar?year=${today_info.after_year}&month=${today_info.after_month}">
 					<!-- 다음달 --> &gt;
 				</a> <a class="before_after_year"
-					href="/calendar?year=${today_info.search_year+1}&month=${today_info.search_month-1}">
+					href="./calendar?year=${today_info.search_year+1}&month=${today_info.search_month-1}">
 					<!-- 다음해 --> &gt;&gt;
 				</a>
 			</div>
 
 			<div class="today_button_div">
-			<input type="button" class="today_button" onclick="#" value="go today"/>
+			<input type="button" class="today_button" onclick="javascript:location.href='./calendar'" value="go today"/>
 			</div>
 			<table class="calendar_body">
 
