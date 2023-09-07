@@ -9,8 +9,9 @@
 <html lang="ko">
 <head>
 <title>캘린더</title>
-<link href="/resources/assets/css/cal.css?after" rel="stylesheet" type="text/css">
-
+<link href="/resources/assets/css/cal.css" rel="stylesheet" type="text/css">
+<!-- <link href="/resources/assets/css/cal.css?after" rel="stylesheet" type="text/css"> -->
+</head>
 <body>
 	<form name="calendarFrm" id="calendarFrm" action="" method="GET">
 
@@ -39,7 +40,7 @@
 			<div class = "searchBox" > 
 				<form id ='searchForm' action="#" method='get'>  <!-- 어디로 갈건지 넣을 거야 -->
 	       			<select id = "typeSearch" name='type'>
-	       				<option value="${pageMaker.cri.type == null?'selected':'' }">--</option>
+	       				<option value="${pageMaker.cri.type == null?'selected':'' }">유형</option>
 	       				<option value="T"
 	       					<c:out value="${pageMaker.cri.type eq 'T' ? 'selected':'' }"/>>행사명?</option>
 	       				<option value="C"
@@ -56,7 +57,7 @@
        		</div>
 
 			<div class="today_button_div">
-			<input type="button" class="today_button" onclick="javascript:location.href='./calendar'" value="Go today"/>
+			<input type="button" class="today_button" onclick="javascript:location.href='./calendar'" value="오늘날짜로"/>
 			</div>
 			<table class="calendar_body">
 
@@ -110,7 +111,7 @@
 		</div>
 	</form>
 </body>
-</head>
+
 </html>
 
 <script type="text/javascript">
