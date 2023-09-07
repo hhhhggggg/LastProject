@@ -15,26 +15,20 @@
           <div class="col-6 col-lg-2">
             <h3 class="footer-heading">Navigation</h3>
             <ul class="footer-links list-unstyled">
-              <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="index.html"><i class="bi bi-chevron-right"></i> Blog</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Categories</a></li>
-              <li><a href="news.html"><i class="bi bi-chevron-right"></i> Single Post</a></li>
-              <li><a href="calendar.html"><i class="bi bi-chevron-right"></i> About us</a></li>
-              <li><a href="qna.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
+              <li><a href="/main.jsp"><i class="bi bi-chevron-right"></i> Home</a></li>
+              <li><a href="/news.jsp"><i class="bi bi-chevron-right"></i> News</a></li>
+              <li><a href="/category.html"><i class="bi bi-chevron-right"></i> Categories</a></li>
+              <li><a href="/calendar.jsp"><i class="bi bi-chevron-right"></i> Calendar</a></li>
+              <li><a href="/notice.jsp"><i class="bi bi-chevron-right"></i> Notice</a></li>
             </ul>
           </div>
           <div class="col-6 col-lg-2">
             <h3 class="footer-heading">Categories</h3>
             <ul class="footer-links list-unstyled">
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Business</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Culture</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Sport</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Food</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Politics</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Celebrity</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Startups</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Travel</a></li>
-
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> 뮤지컬</a></li>
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> 콘서트</a></li>
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> 페스티벌</a></li>
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> 지역축제</a></li>
             </ul>
           </div>
 
@@ -43,7 +37,7 @@
 
             <ul class="footer-links footer-blog-entry list-unstyled">
               <li>
-                <a href="news.html" class="d-flex align-items-center">
+                <a href="news.jsp" class="d-flex align-items-center">
                   <img src="/resources/assets/img/post-sq-1.jpg" alt="" class="img-fluid me-3">
                   <div>
                     <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
@@ -103,22 +97,10 @@
               <!-- You can delete the links only if you purchased the pro version. -->
               <!-- Licensing information: https://bootstrapmade.com/license/ -->
               <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
-              Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+              Designed by <a href="https://bootstrapmade.com/">9981</a>
             </div>
 
           </div>
-
-          <div class="col-md-6">
-            <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-            </div>
-
-          </div>
-
         </div>
 
       </div>
