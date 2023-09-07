@@ -33,6 +33,12 @@ A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
   text-align: center;
 }
 
+.navigation{
+  font-size: larger;
+  font-weight: bold;
+  
+}
+
 .sat{
   color:#529dbc;
 }
@@ -49,8 +55,9 @@ A:hover { font-size:9pt; font-family:"돋움";color:red;text-decoration:none;}
 	width:80px;
 	height:30px;
 	margin-bottom: 5px;
-  border-color: #bbbbbb;
-  border-radius: 4px;
+	border-color: #bbbbbb;
+	border-radius: 4px;
+	font-size: large;
 }
 
 
@@ -68,7 +75,7 @@ input{
 }
 
 .today_button{
-  width: 80px; 
+  width: 100px; 
   height:30px;
   text-align: center;
   border-style: solid;
@@ -157,6 +164,7 @@ input{
 .before_after_month{
   margin: 10px;
   font-weight: bold;
+  font-size: larger;
 }
 .before_after_year{
   font-weight: bold;
