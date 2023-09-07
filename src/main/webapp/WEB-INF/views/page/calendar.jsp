@@ -9,9 +9,8 @@
 <html lang="ko">
 <head>
 <title>캘린더</title>
-<link href="/resources/assets/css/cal.css" rel="stylesheet" type="text/css">
+<link href="/resources/assets/css/cal.css?after" rel="stylesheet" type="text/css">
 
-</head>
 <body>
 	<form name="calendarFrm" id="calendarFrm" action="" method="GET">
 
@@ -37,8 +36,27 @@
 				</a>
 			</div>
 
+			<div class = "searchBox" > 
+				<form id ='searchForm' action="#" method='get'>  <!-- 어디로 갈건지 넣을 거야 -->
+	       			<select id = "typeSearch" name='type'>
+	       				<option value="${pageMaker.cri.type == null?'selected':'' }">--</option>
+	       				<option value="T"
+	       					<c:out value="${pageMaker.cri.type eq 'T' ? 'selected':'' }"/>>행사명?</option>
+	       				<option value="C"
+	       					<c:out value="${pageMaker.cri.type eq 'C' ? 'selected':'' }"/>>몰까?</option>
+	       				<option value="W"
+	       					<c:out value="${pageMaker.cri.type eq 'W' ? 'selected':'' }"/>>지역?</option>
+	       			</select>
+	       			<input type = 'text' name='keyword' value = '<c:out value ="${pageMaker.cri.keyword }"/>' />
+	       			<button class = 'btn_btn-default'>찾기</button>
+	       		</form>
+	       		
+	       		
+       		
+       		</div>
+
 			<div class="today_button_div">
-			<input type="button" class="today_button" onclick="javascript:location.href='./calendar'" value="go today"/>
+			<input type="button" class="today_button" onclick="javascript:location.href='./calendar'" value="Go today"/>
 			</div>
 			<table class="calendar_body">
 
@@ -92,6 +110,7 @@
 		</div>
 	</form>
 </body>
+</head>
 </html>
 
 <script type="text/javascript">
