@@ -10,22 +10,21 @@
 <html lang="ko">
 <head>
 <title>캘린더</title>
-<<<<<<< HEAD
+
 <link href="/resources/assets/css/cal.css" rel="stylesheet"
 	type="text/css">
-=======
-<link href="/resources/assets/css/cal.css" rel="stylesheet" type="text/css">
 <link href="/resources/assets/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
-<link href="/resources/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+<link
+	href="/resources/assets/vendor/bootstrap-icons/bootstrap-icons.css"
 	rel="stylesheet">
-<link href="/resources/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<link href="/resources/assets/vendor/swiper/swiper-bundle.min.css"
+	rel="stylesheet">
 <link href="/resources/assets/vendor/glightbox/css/glightbox.min.css"
 	rel="stylesheet">
 <link href="/resources/assets/vendor/aos/aos.css" rel="stylesheet">
 <link href="/resources/assets/css/variables.css" rel="stylesheet">
 <link href="/resources/assets/css/main.css" rel="stylesheet">
->>>>>>> 4e1c88b0720b8ad443ea4292e6e5a580a6675010
 <!-- <link href="/resources/assets/css/cal.css?after" rel="stylesheet" type="text/css"> -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -60,13 +59,13 @@
 					<select id="typeSearch" name='type'>
 						<option value="${pageMaker.cri.type == null?'selected':'' }">유형</option>
 						<option value="M"
-							<c:out value="${pageMaker.cri.type eq 'T' ? 'selected':'' }"/>>뮤지컬</option>
+							<c:out value="${pageMaker.cri.type eq 'M' ? 'selected':'' }"/>>뮤지컬</option>
 						<option value="C"
-							<c:out value="${pageMaker.cri.type eq 'T' ? 'selected':'' }"/>>콘서트</option>
+							<c:out value="${pageMaker.cri.type eq 'C' ? 'selected':'' }"/>>콘서트</option>
 						<option value="L"
-							<c:out value="${pageMaker.cri.type eq 'C' ? 'selected':'' }"/>>지역축제</option>
+							<c:out value="${pageMaker.cri.type eq 'L' ? 'selected':'' }"/>>지역축제</option>
 						<option value="F"
-							<c:out value="${pageMaker.cri.type eq 'W' ? 'selected':'' }"/>>페스티벌</option>
+							<c:out value="${pageMaker.cri.type eq 'F' ? 'selected':'' }"/>>페스티벌</option>
 					</select> <input type='text' name='keyword'
 						value='<c:out value ="${pageMaker.cri.keyword }"/>' />
 					<button class='searchFormBtn'>찾기</button>
@@ -153,48 +152,41 @@
 </html>
 
 <script type="text/javascript">
+	// 모달 기능을 위한 JavaScript
+	$(document).ready(function() {
+		// cnt 요소를 클릭하면 모달과 오버레이를 표시합니다.
 
+		$('.cnt').click(function() {
+			$('#modal').show();
+			$('#overlay').show();
+		});
 
-// 모달 기능을 위한 JavaScript
-$(document).ready(function() {
-    // cnt 요소를 클릭하면 모달과 오버레이를 표시합니다.
+		// 닫기 버튼 또는 오버레이를 클릭하면 모달을 숨깁니다.
+		$('#close-modal, #overlay').click(function() {
+			$('#modal').hide();
+			$('#overlay').hide();
+		});
 
-    $('.cnt').click(function() {
-        $('#modal').show();
-        $('#overlay').show();
-    });
+		var searchForm = $("#searchForm");
 
-    // 닫기 버튼 또는 오버레이를 클릭하면 모달을 숨깁니다.
-    $('#close-modal, #overlay').click(function() {
-        $('#modal').hide();
-        $('#overlay').hide();
-    });
-    
-    
-    var searchForm = $("#searchForm");
-	
-	$("#searchFormBtn").on("click", function(e){
-		
-		if(!searchForm.find("option:selected").val()){
-			alert("검색유형을 선택하세요");
-			return false;
-		}
-		if(!searchForm.find("input[name='keyword']").val()){
-			alert("검색내용을 입력하세요");
-			return false;
-		}
-		
-		searchForm.find("input[name='pageNum']").val("1");
-		e.preventDefault();
-		
-		searchForm.submit();
-		
-		
-	})
-});
+		$("#searchFormBtn").on("click", function(e) {
 
-	  
+			if (!searchForm.find("option:selected").val()) {
+				alert("검색유형을 선택하세요");
+				return false;
+			}
+			if (!searchForm.find("input[name='keyword']").val()) {
+				alert("검색내용을 입력하세요");
+				return false;
+			}
 
+			searchForm.find("input[name='pageNum']").val("1");
+			e.preventDefault();
+
+			searchForm.submit();
+
+		})
+	});
 </script>
 
 <%@include file="../includes/footer.jsp"%>
