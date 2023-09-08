@@ -9,11 +9,10 @@
 <head>
 
 <title>ShowFesta</title>
-<link rel="stylesheet" href = "//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-<link rel="stylesheet" type="text/css" href = "/resources/news/ShowFesta/Contents/Css/sub.css">
 
-<!-- <link href="/resources/assets/css/cal.css?after" rel="stylesheet"
-	type="text/css"> -->
+
+<link href="/resources/assets/css/cal.css?after" rel="stylesheet"
+	type="text/css">
 <meta content="" name="description">
 <meta content="" name="keywords">
 <meta charset="utf-8">
@@ -21,6 +20,8 @@
 	content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, height=device-height">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
+<link rel="stylesheet" href = "//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link rel="stylesheet" type="text/css" href = "/resources/news/ShowFesta/Contents/Css/sub.css">
 <!-- Favicons -->
 <link href="/resources/assets/img/favicon.png" rel="icon">
 <link href="/resources/assets/img/apple-touch-icon.png"
@@ -34,17 +35,15 @@
 	rel="stylesheet">
 
 <!-- Vendor CSS Files -->
-<link href="/resources/assets/vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
 <link
 	href="/resources/assets/vendor/bootstrap-icons/bootstrap-icons.css"
-	rel="stylesheet">
+	rel="stylesheet"> 
 <link href="/resources/assets/vendor/swiper/swiper-bundle.min.css"
 	rel="stylesheet">
 <link href="/resources/assets/vendor/glightbox/css/glightbox.min.css"
 	rel="stylesheet">
 <link href="/resources/assets/vendor/aos/aos.css" rel="stylesheet">
-
+ 
 <!-- Template Main CSS Files -->
 <link href="/resources/assets/css/variables.css" rel="stylesheet">
 <link href="/resources/assets/css/main.css?after" rel="stylesheet">
@@ -57,7 +56,7 @@
 	<section onclick="toggleNavi('close');">
 		<div class="container tdn_container">
 			<div class="tdn_left" id="tdn_left_temp" style="displat: none;">
-				<p style="width: 160px; height: 600px; color: #fff; backgrond: #fff"></p>
+				<p style="width: 160px; height: 10px; color: #fff; backgrond: #fff"></p>
 			</div>
 			<article class="content">
 				<p class="location">
@@ -73,8 +72,7 @@
 										src="//image.yes24.com/themusical/fileStorage/ThemusicalAdmin/News/Image/2023082831709579bd6244c2b3babb59df268052290f0b20.jpg"
 										alt>
 									</a>
-								</p>
-								<div class="con-4-6 m-6-6">
+									<div class="con-4-6 m-6-6">
 									<p class="img_thum_tit">
 										<a href="/News/Detail?num=13824">연극 <기형도 플레이> 10월 개막</a>
 										<br> <br> <span class="xi-clock"> ::before
@@ -86,6 +84,7 @@
 											구성된 '창작집단 독' 작가 9명이 기형도의 시 9편에서 영감을 받아 쓴 단편 희곡들로 구성된 작품이다." </span>
 									</p>
 								</div>
+								</p>
 							</li>
 						</ul>
 					</div>
@@ -107,7 +106,7 @@
 						</ul>
 					</div>
 				</section>
-				<!--  좌측 컨텐츠 영역 END -->			
+				<!--  좌측 컨텐츠 영역 END -->							
 			</article>
 		</div>
 	</section>
