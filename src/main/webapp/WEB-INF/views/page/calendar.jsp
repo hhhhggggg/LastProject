@@ -16,8 +16,7 @@
 <!-- </head> -->
 <!-- <body> -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link href="/resources/assets/css/cal.css" rel="stylesheet"
-	type="text/css">
+<link href="/resources/assets/css/cal.css" rel="stylesheet" type="text/css">
 <form name="calendarFrm" id="calendarFrm" action="" method="GET">
 
 	<div class="calendar">
