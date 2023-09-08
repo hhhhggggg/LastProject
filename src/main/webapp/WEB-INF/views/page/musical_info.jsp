@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../includes/header_info.jsp"%>
-<link href="/resources/clone/css/common.css" rel="stylesheet">
+
+<link href="/resources/clone/css/common.css?after" rel="stylesheet">
 <link href="/resources/clone/css/goods.css?after" rel="stylesheet">
 <div id="container">
 	<main id="main">
