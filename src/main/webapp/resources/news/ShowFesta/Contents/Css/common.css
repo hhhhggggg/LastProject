@@ -1,0 +1,86 @@
+@charset "utf-8"; /* Common */
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select {
+    margin: 0;
+    padding: 0;
+}
+
+html,body {
+    height: 100%;
+    min-height: 100%;
+}
+
+body,input,textarea,select,button,table {
+    font-family: '돋움',Dotum,Arial,sans-serif;
+    font-size: 12px;
+}
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,big,cite,code,del,dfn,em,font,img,ins,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,tbody,tfoot,thead,tr,th,td {
+    border: 0;
+    line-height: 1.5em;
+}
+
+/* vertical-align:baseline;outline:0;ie 외 브라우저 포커싱 사라지는 문제로 제거 */
+table {
+    border-spacing: 0;
+    clear: both;
+    border-collapse: separate;
+}
+
+/* border-collapse:collapse;ff에서 border="0" 인 경우 문제 발생 */
+address,caption,cite,code,dfn,em,strong,th,var {
+    font-style: normal;
+    /* font-weight:normal */
+}
+
+article,aside,canvas,details,figcaption,figure, footer,header,hgroup,menu,nav,section,summary {
+    display: block;
+    vertical-align: baseline;
+}
+
+/* html5 css정의 */
+a,a:hover,a:active,a:focus {
+    text-decoration: none;
+}
+
+ul,ol,dl,li,dt,dd {
+    list-style: none;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+legend {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: -5000px;
+    width: 0;
+    height: 0;
+    z-index: -1;
+    visibility: hidden;
+    font-size: 0;
+    line-height: 0;
+}
+
+caption {
+    display: none;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/*colgroup 크롬과 사파리적용안되는 현상*/
+.blind {
+    visibility: hidden;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    font-size: 0;
+    line-height: 0
+}

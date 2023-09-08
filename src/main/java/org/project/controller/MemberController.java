@@ -209,9 +209,5 @@ public class MemberController {
 
         return "/join/pw_find_result"; // 결과를 표시할 JSP 파일의 이름 반환
     }
-//	@GetMapping("/pw_find_result")
-//	public void findPw_result() {
-//		log.info("pw_find_result Get");
-//	}
 
 }

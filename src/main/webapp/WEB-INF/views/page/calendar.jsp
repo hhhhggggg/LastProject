@@ -10,8 +10,22 @@
 <html lang="ko">
 <head>
 <title>캘린더</title>
+<<<<<<< HEAD
 <link href="/resources/assets/css/cal.css" rel="stylesheet"
 	type="text/css">
+=======
+<link href="/resources/assets/css/cal.css" rel="stylesheet" type="text/css">
+<link href="/resources/assets/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="/resources/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+	rel="stylesheet">
+<link href="/resources/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<link href="/resources/assets/vendor/glightbox/css/glightbox.min.css"
+	rel="stylesheet">
+<link href="/resources/assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="/resources/assets/css/variables.css" rel="stylesheet">
+<link href="/resources/assets/css/main.css" rel="stylesheet">
+>>>>>>> 4e1c88b0720b8ad443ea4292e6e5a580a6675010
 <!-- <link href="/resources/assets/css/cal.css?after" rel="stylesheet" type="text/css"> -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
