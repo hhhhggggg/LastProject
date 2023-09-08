@@ -89,5 +89,4 @@ public class ScheduleController {
 	public void latestNewsPage() {
 		log.info("News get");
 	}
-
 }

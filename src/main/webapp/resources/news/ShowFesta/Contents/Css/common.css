@@ -9,11 +9,6 @@ html,body {
     min-height: 100%;
 }
 
-body,input,textarea,select,button,table {
-    font-family: '돋움',Dotum,Arial,sans-serif;
-    font-size: 12px;
-}
-
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,big,cite,code,del,dfn,em,font,img,ins,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,tbody,tfoot,thead,tr,th,td {
     border: 0;
     line-height: 1.5em;
