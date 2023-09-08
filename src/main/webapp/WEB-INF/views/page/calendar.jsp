@@ -22,44 +22,42 @@
 
 	<div class="calendar">
 
-		<!--날짜 네비게이션  -->
-		<div class="navigation">
-			<a class="before_after_year"
-				href="./calendar?year=${today_info.search_year-1}&month=${today_info.search_month-1}">
-				&lt;&lt; <!-- 이전년도 -->
-			</a> <a class="before_after_month"
-				href="./calendar?year=${today_info.before_year}&month=${today_info.before_month}">
-				&lt; <!-- 이전 달 -->
-			</a> <span class="this_month"> &nbsp;${today_info.search_year}. <c:if
-					test="${today_info.search_month<10}">0</c:if>${today_info.search_month}
-			</span> <a class="before_after_month"
-				href="./calendar?year=${today_info.after_year}&month=${today_info.after_month}">
-				<!-- 다음달 --> &gt;
-			</a> <a class="before_after_year"
-				href="./calendar?year=${today_info.search_year+1}&month=${today_info.search_month-1}">
-				<!-- 다음해 --> &gt;&gt;
-			</a>
-		</div>
+			<!--날짜 네비게이션  -->
+			<div class="navigation">
+				<a class="before_after_year"
+					href="./calendar?year=${today_info.search_year-1}&month=${today_info.search_month-1}">
+					&lt;&lt; <!-- 이전년도 -->
+				</a> <a class="before_after_month"
+					href="./calendar?year=${today_info.before_year}&month=${today_info.before_month}">
+					&lt; <!-- 이전 달 -->
+				</a> <span class="this_month"> &nbsp;${today_info.search_year}. <c:if
+						test="${today_info.search_month<10}">0</c:if>${today_info.search_month}
+				</span> <a class="before_after_month"
+					href="./calendar?year=${today_info.after_year}&month=${today_info.after_month}">
+					<!-- 다음달 --> &gt;
+				</a> <a class="before_after_year"
+					href="./calendar?year=${today_info.search_year+1}&month=${today_info.search_month-1}">
+					<!-- 다음해 --> &gt;&gt;
+				</a>
+			</div>
 
-		<div class="searchBox">
-			<form id='searchForm' action="/page/calendar" method='get'>
-				<!-- 어디로 갈건지 넣을 거야 -->
-				<select id="typeSearch" name='type'>
-					<option value="${pageMaker.cri.type == null?'selected':'' }">유형</option>
-					<option value="M"
-						<c:out value="${pageMaker.cri.type eq 'T' ? 'selected':'' }"/>>뮤지컬</option>
-					<option value="C"
-						<c:out value="${pageMaker.cri.type eq 'T' ? 'selected':'' }"/>>콘서트</option>
-					<option value="L"
-						<c:out value="${pageMaker.cri.type eq 'C' ? 'selected':'' }"/>>지역축제</option>
-					<option value="F"
-						<c:out value="${pageMaker.cri.type eq 'W' ? 'selected':'' }"/>>페스티벌</option>
-				</select> <input type='text' name='keyword'
-					value='<c:out value ="${pageMaker.cri.keyword }"/>' />
-				<button class='searchFormBtn'>찾기</button>
-			</form>
-
-
+			<div class="searchBox">
+				<form id='searchForm' action="#" method='get'>
+					<!-- 어디로 갈건지 넣을 거야 -->
+					<select id="typeSearch" name='type'>
+						<option value="${pageMaker.cri.type == null?'selected':'' }">유형</option>
+						<option value="M"
+							<c:out value="${pageMaker.cri.type eq 'M' ? 'selected':'' }"/>>뮤지컬</option>
+						<option value="C"
+							<c:out value="${pageMaker.cri.type eq 'C' ? 'selected':'' }"/>>콘서트</option>
+						<option value="L"
+							<c:out value="${pageMaker.cri.type eq 'L' ? 'selected':'' }"/>>지역축제</option>
+						<option value="F"
+							<c:out value="${pageMaker.cri.type eq 'F' ? 'selected':'' }"/>>페스티벌</option>
+					</select> <input type='text' name='keyword'
+						value='<c:out value ="${pageMaker.cri.keyword }"/>' />
+					<button class='searchFormBtn'>찾기</button>
+				</form>
 
 		</div>
 
@@ -171,7 +169,8 @@
 			}
 
 			searchForm.find("input[name='pageNum']").val("1");
-			// 		e.preventDefault();
+
+			e.preventDefault();
 
 			searchForm.submit();
 
