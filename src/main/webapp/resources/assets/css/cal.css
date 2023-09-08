@@ -10,7 +10,7 @@ body {
 		margin-left:"0px"; margin-right:"0px"; margin-top:"0px"; margin-bottom:"0px";
 		}
 
-td {font-family: "돋움"; font-size: 9pt; color:#595959;}
+td {font-size: 9pt; color:#595959;}
 th {font-family: "돋움"; font-size: 9pt; color:#000000;}
 select {font-family: "돋움"; font-size: 9pt; color:#595959;}
 
@@ -131,7 +131,10 @@ a {
 	margin-top:20px;
 	font-size:medium;
 }
-
+a .cnt{
+	margin-top:20px;
+	font-size:large;
+}
 .calendar_body .date{
   font-weight: bold;
   font-size: 15px;

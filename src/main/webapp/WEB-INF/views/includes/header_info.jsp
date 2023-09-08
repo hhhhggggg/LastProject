@@ -30,14 +30,16 @@ pageEncoding="UTF-8"%>
   <link href="/resources/assets/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS Files -->
-  <link href="/resources/assets/css/variables.css" rel="stylesheet">
-  <link href="/resources/assets/css/main.css" rel="stylesheet">
+<!--   <link href="/resources/assets/css/variables.css" rel="stylesheet"> -->
+<!--   <link href="/resources/assets/css/main.css" rel="stylesheet"> -->
 </head>
 
 <body>
 
   <!-- ======= Header ======= -->
   <header id="header" class="header d-flex align-items-center fixed-top">
+    <link href="/resources/assets/css/variables.css" rel="stylesheet">
+  <link href="/resources/assets/css/main.css" rel="stylesheet">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="/join/main" class="logo d-flex align-items-center">
