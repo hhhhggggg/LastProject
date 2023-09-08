@@ -126,7 +126,8 @@ input{
 /* 	font-size: medium; */
 /* } */
 
-a .cnt{
+/* 되는지 확인하기 지금 안됨*/
+a {
 	margin-top:20px;
 	font-size:medium;
 }
