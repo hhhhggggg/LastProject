@@ -10,7 +10,8 @@
 <html lang="ko">
 <head>
 <title>캘린더</title>
-<link href="/resources/assets/css/cal.css" rel="stylesheet" type="text/css">
+<link href="/resources/assets/css/cal.css" rel="stylesheet"
+	type="text/css">
 <!-- <link href="/resources/assets/css/cal.css?after" rel="stylesheet" type="text/css"> -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -30,8 +31,7 @@
 					&lt; <!-- 이전 달 -->
 				</a> <span class="this_month"> &nbsp;${today_info.search_year}. <c:if
 						test="${today_info.search_month<10}">0</c:if>${today_info.search_month}
-				</span> 
-				<a class="before_after_month"
+				</span> <a class="before_after_month"
 					href="./calendar?year=${today_info.after_year}&month=${today_info.after_month}">
 					<!-- 다음달 --> &gt;
 				</a> <a class="before_after_year"
@@ -40,29 +40,31 @@
 				</a>
 			</div>
 
-			<div class = "searchBox" > 
-				<form id ='searchForm' action="#" method='get'>  <!-- 어디로 갈건지 넣을 거야 -->
-	       			<select id = "typeSearch" name='type'>
-	       				<option value="${pageMaker.cri.type == null?'selected':'' }">유형</option>
-	       				<option value="M"
-	       					<c:out value="${pageMaker.cri.type eq 'T' ? 'selected':'' }"/>>뮤지컬</option>
-	       				<option value="C"
-	       					<c:out value="${pageMaker.cri.type eq 'T' ? 'selected':'' }"/>>콘서트</option>
-	       				<option value="L"
-	       					<c:out value="${pageMaker.cri.type eq 'C' ? 'selected':'' }"/>>지역축제</option>
-	       				<option value="F"
-	       					<c:out value="${pageMaker.cri.type eq 'W' ? 'selected':'' }"/>>페스티벌</option>
-	       			</select>
-	       			<input type = 'text' name='keyword' value = '<c:out value ="${pageMaker.cri.keyword }"/>' />
-	       			<button class = 'searchFormBtn'>찾기</button>
-	       		</form>
-	       		
-	       		
-       		
-       		</div>
+			<div class="searchBox">
+				<form id='searchForm' action="#" method='get'>
+					<!-- 어디로 갈건지 넣을 거야 -->
+					<select id="typeSearch" name='type'>
+						<option value="${pageMaker.cri.type == null?'selected':'' }">유형</option>
+						<option value="M"
+							<c:out value="${pageMaker.cri.type eq 'T' ? 'selected':'' }"/>>뮤지컬</option>
+						<option value="C"
+							<c:out value="${pageMaker.cri.type eq 'T' ? 'selected':'' }"/>>콘서트</option>
+						<option value="L"
+							<c:out value="${pageMaker.cri.type eq 'C' ? 'selected':'' }"/>>지역축제</option>
+						<option value="F"
+							<c:out value="${pageMaker.cri.type eq 'W' ? 'selected':'' }"/>>페스티벌</option>
+					</select> <input type='text' name='keyword'
+						value='<c:out value ="${pageMaker.cri.keyword }"/>' />
+					<button class='searchFormBtn'>찾기</button>
+				</form>
+
+
+
+			</div>
 
 			<div class="today_button_div">
-			<input type="button" class="today_button" onclick="javascript:location.href='./calendar'" value="오늘날짜로"/>
+				<input type="button" class="today_button"
+					onclick="javascript:location.href='./calendar'" value="오늘날짜로" />
 			</div>
 			<table class="calendar_body">
 
@@ -79,13 +81,13 @@
 				</thead>
 				<tbody>
 					<tr>
-						<c:forEach var="dateList" items="${dateList}" varStatus="date_status">
+						<c:forEach var="dateList" items="${dateList}"
+							varStatus="date_status">
 							<c:choose>
 								<c:when test="${dateList.value=='today'}">
 									<td class="today">
-										<div class="date" >${dateList.date}</div>
-<%-- 										<div class = "cnt" > 공연 개수 : ${todayCnt}</div> --%>
-										<a class = "cnt">공연 개수 : ${todayCnt}</a>
+										<div class="date">${dateList.date}</div> <%-- 										<div class = "cnt" > 공연 개수 : ${todayCnt}</div> --%>
+										<a class="cnt">공연 개수 : ${todayCnt}</a>
 									</td>
 								</c:when>
 								<c:when test="${date_status.index%7==6}">
@@ -107,30 +109,30 @@
 								<div></div>
 							</td>
 						</c:otherwise>
-							</c:choose>
+						</c:choose>
 						</c:forEach>
 				</tbody>
 
 			</table>
 		</div>
-		
-		
+
+
 		<!-- 모달을 위한 HTML 코드 추가 -->
 		<div id="modal" class="modal">
-		    <div class="modal-content">
-		        <!-- 모달 내용을 여기에 추가하세요 -->
-		        <span class="close-modal" id="close-modal">&times;</span>
-		        <h2>제발 되주겠니</h2>
-		        <p>사람살려</p>
-		    </div>
+			<div class="modal-content">
+				<!-- 모달 내용을 여기에 추가하세요 -->
+				<span class="close-modal" id="close-modal">&times;</span>
+				<h2>제발 되주겠니</h2>
+				<p>사람살려</p>
+			</div>
 		</div>
-		
+
 		<div id="overlay" class="overlay"></div>
-		
-		
-		
-		
-		
+
+
+
+
+
 	</form>
 </body>
 
@@ -153,29 +155,31 @@ $(document).ready(function() {
         $('#modal').hide();
         $('#overlay').hide();
     });
+    
+    
+    var searchForm = $("#searchForm");
+	
+	$("#searchFormBtn").on("click", function(e){
+		
+		if(!searchForm.find("option:selected").val()){
+			alert("검색유형을 선택하세요");
+			return false;
+		}
+		if(!searchForm.find("input[name='keyword']").val()){
+			alert("검색내용을 입력하세요");
+			return false;
+		}
+		
+		searchForm.find("input[name='pageNum']").val("1");
+		e.preventDefault();
+		
+		searchForm.submit();
+		
+		
+	})
 });
 
-// 	  var searchForm = $("#searchForm");
-		
-// 		$("#searchFormBtn").on("click", function(e){
-			
-// 			if(!searchForm.find("option:selected").val()){
-// 				alert("검색유형을 선택하세요");
-// 				return false;
-// 			}
-// 			if(!searchForm.find("input[name='keyword']").val()){
-// 				alert("검색내용을 입력하세요");
-// 				return false;
-// 			}
-			
-// 			searchForm.find("input[name='pageNum']").val("1");
-// 			e.preventDefault();
-			
-// 			searchForm.submit();
-			
-			
-// 		})
-// 	});
+	  
 
 </script>
 
