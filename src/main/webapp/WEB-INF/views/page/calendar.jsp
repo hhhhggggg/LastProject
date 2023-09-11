@@ -156,26 +156,26 @@
 			$('#overlay').hide();
 		});
 
-		var searchForm = $("#searchForm");
+// 		var searchForm = $("#searchForm");
 
-		$("#searchFormBtn").on("click", function(e) {
+// 		$("#searchFormBtn").on("click", function(e) {
 
-			if (!searchForm.find("option:selected").val()) {
-				alert("검색유형을 선택하세요");
-				return false;
-			}
-			if (!searchForm.find("input[name='keyword']").val()) {
-				alert("검색내용을 입력하세요");
-				return false;
-			}
+// 			if (!searchForm.find("option:selected").val()) {
+// 				alert("검색유형을 선택하세요");
+// 				return false;
+// 			}
+// 			if (!searchForm.find("input[name='keyword']").val()) {
+// 				alert("검색내용을 입력하세요");
+// 				return false;
+// 			}
 
-			searchForm.find("input[name='pageNum']").val("1");
+// 			searchForm.find("input[name='pageNum']").val("1");
 
-			e.preventDefault();
+// 			e.preventDefault();
 
-			searchForm.submit();
+// 			searchForm.submit();
 
-		})
+// 		})
 	});
 </script>
 
