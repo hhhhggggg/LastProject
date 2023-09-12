@@ -38,7 +38,7 @@
 					<!-- 다음달 --> &gt;
 				</a> <a class="before_after_year"
 					href="./calendar?year=${today_info.search_year+1}&month=${today_info.search_month-1}">
-					<!-- 다음해 --> &gt;&gt;
+					<!-- 다음년도 --> &gt;&gt;
 				</a>
 			</div>
 
@@ -86,8 +86,10 @@
 						<c:choose>
 							<c:when test="${dateList.value=='today'}">
 								<td class="today">
-									<div class="date">${dateList.date}</div> <%-- 										<div class = "cnt" > 공연 개수 : ${todayCnt}</div> --%>
-									<a class="cnt">공연 개수 : ${todayCnt}</a>
+									<div class="date">${dateList.date}</div> 
+									<%-- 										<div class = "cnt" > 공연 개수 : ${todayCnt}</div> --%>
+									<a class="mCnt">뮤지컬 : ${musicalCnt}</a><br><br>
+									<a class="cCnt">콘서트 : ${concertCnt}</a>
 								</td>
 							</c:when>
 							<c:when test="${date_status.index%7==6}">
@@ -106,7 +108,9 @@
 					<c:otherwise>
 						<td class="normal_day">
 							<div class="date">${dateList.date}</div>
-							<div></div>
+							<!--<div></div> -->
+							<!-- 여기에 매일 공연 개수 나타나야해 -->
+<%-- 							<a class="cnt">공연 개수 : ${getPerformanceCount(dateList.date)}</a> --%>
 						</td>
 					</c:otherwise>
 					</c:choose>
@@ -119,12 +123,17 @@
 
 
 	<!-- 모달을 위한 HTML 코드 추가 -->
-	<div id="modal" class="modal">
+	<div id="modal" class="modalFade">
+		<!--모달내용 -->
 		<div class="modal-content">
-			<!-- 모달 내용을 여기에 추가하세요 -->
+			<div class ="modal-header">
+			<h2>상세정보</h2>
+			</div>
+			<div class = "modal-body">
 			<span class="close-modal" id="close-modal">&times;</span>
 			<h2>제발 되주겠니</h2>
 			<p>사람살려</p>
+			</div>
 		</div>
 	</div>
 
@@ -145,7 +154,7 @@
 	$(document).ready(function() {
 		// cnt 요소를 클릭하면 모달과 오버레이를 표시합니다.
 
-		$('.cnt').click(function() {
+		$('.mCnt').click(function() {
 			$('#modal').show();
 			$('#overlay').show();
 		});
