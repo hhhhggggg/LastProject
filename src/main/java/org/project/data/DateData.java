@@ -18,11 +18,6 @@ public class DateData {
 	String month = "";
 	String date = "";
 	String value = "";
-	//스케쥴 추가시 아래처럼 
-	//		1. 변수 추가
-	//		2. getter/setter 추가
-	//		3. 생성자 추가
-	//				하여 사용하면 보다 편리하고 깨끗하게 코드를 만들 수 있다.
 	String schedule = "";
 
 	public DateData(String year, String month, String date, String value, String schedule, String schedule_detail) {

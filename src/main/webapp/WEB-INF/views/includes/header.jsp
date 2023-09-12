@@ -65,7 +65,7 @@ pageEncoding="UTF-8"%>
       </nav><!-- .navbar -->
       <div class="position-relative">
 <!--       el이랑 jstl로 조건문 만들어 보기 -->
-		<a href="#" class="mx-2" id="myPage" style="display: ${empty user ? 'inline' : 'none'}"><span class="bi-person-fill"></span></a>
+		<a href="/join/myPage" class="mx-2" id="myPage" style="display: ${empty user ? 'inline' : 'none'}"><span class="bi-person-fill"></span></a>
 		<a href="/join/login" class="mx-2" id="logIn" style="display: ${empty user ? 'inline' : 'none'}">Sign-In</a>
 		<a href="/join/register" class="mx-2" id="register" style="display: ${empty user ? 'inline' : 'none'}">Sign-Up</a>
 		<a ${empty user ? 'style="display:none;"' : ''}>${user.name }

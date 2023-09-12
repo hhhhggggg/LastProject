@@ -1,5 +1,7 @@
 package org.project.controller;
 
+import java.time.LocalDate;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -43,6 +45,7 @@ public class ScheduleController {
 		Map<String, Integer> today_info = dateData.today_info(dateData);
 		List<DateData> dateList = new ArrayList<DateData>();
 
+		
 		// 실질적인 달력 데이터 리스트에 데이터 삽입 시작.
 		// 일단 시작 인덱스까지 아무것도 없는 데이터 삽입
 		for (int i = 1; i < today_info.get("start"); i++) {
@@ -72,9 +75,12 @@ public class ScheduleController {
 			}
 		}
 		System.out.println(dateList);
-		int todayCnt = service.selectCnt();
+		int musicalCnt = service.getMusical();
+		int concertCnt = service.getConcerts();
+		
 		// 배열에 담음
-		model.addAttribute("todayCnt", todayCnt);
+		model.addAttribute("musicalCnt", musicalCnt);
+		model.addAttribute("concertCnt", concertCnt);
 		model.addAttribute("dateList", dateList); // 날짜 데이터 배열
 		model.addAttribute("today_info", today_info);
 		return "/page/calendar";
