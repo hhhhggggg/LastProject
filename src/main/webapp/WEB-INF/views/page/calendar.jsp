@@ -11,12 +11,12 @@
 <!-- <head> -->
 <!-- <title>캘린더</title> -->
 <!-- <link href="/resources/assets/css/cal.css" rel="stylesheet"	type="text/css"> -->
-<!-- <link href="/resources/assets/css/cal.css?after" rel="stylesheet" type="text/css"> -->
+<link href="/resources/assets/css/cal.css?after" rel="stylesheet" type="text/css">
 
 <!-- </head> -->
 <!-- <body> -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link href="/resources/assets/css/cal.css" rel="stylesheet" type="text/css">
+<!-- <link href="/resources/assets/css/cal.css" rel="stylesheet" type="text/css"> -->
 <form name="calendarFrm" id="calendarFrm" action="" method="GET">
 
 
@@ -88,8 +88,8 @@
 								<td class="today">
 									<div class="date">${dateList.date}</div> 
 									<%-- 										<div class = "cnt" > 공연 개수 : ${todayCnt}</div> --%>
-									<a class="mCnt">뮤지컬 : ${musicalCnt}</a><br><br>
-									<a class="cCnt">콘서트 : ${concertCnt}</a>
+									<a class="cnt">뮤지컬 : ${musicalCnt}</a><br>
+									<a class="cnt">콘서트 : ${concertCnt}</a>
 								</td>
 							</c:when>
 							<c:when test="${date_status.index%7==6}">
@@ -128,12 +128,14 @@
 		<div class="modal-content">
 			<div class ="modal-header">
 			<h2>상세정보</h2>
+			<button type = "button" class = "btn btn-default" data-dismiss="modal">닫기</button>
 			</div>
 			<div class = "modal-body">
-			<span class="close-modal" id="close-modal">&times;</span>
+<!-- 			<span class="close-modal" id="close-modal">&times;</span> -->
 			<h2>제발 되주겠니</h2>
-			<p>사람살려</p>
 			</div>
+<!-- 			<div class = "modal-footer"> -->
+<!-- 			</div> -->
 		</div>
 	</div>
 
@@ -154,13 +156,13 @@
 	$(document).ready(function() {
 		// cnt 요소를 클릭하면 모달과 오버레이를 표시합니다.
 
-		$('.mCnt').click(function() {
+		$('.cnt').click(function() {
 			$('#modal').show();
 			$('#overlay').show();
 		});
 
 		// 닫기 버튼 또는 오버레이를 클릭하면 모달을 숨깁니다.
-		$('#close-modal, #overlay').click(function() {
+		$('button, #overlay').click(function() {
 			$('#modal').hide();
 			$('#overlay').hide();
 		});
